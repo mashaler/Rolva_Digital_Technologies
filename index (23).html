@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolva Digital Technologies — Engineering Quality. Delivering Confidence.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1E33;
+    --navy-2:#122A45;
+    --steel:#1C3D5A;
+    --paper:#F3F5F7;
+    --ink:#101820;
+    --teal:#12A6A0;
+    --teal-dim:#0C7C77;
+    --gold:#C9A227;
+    --line: rgba(255,255,255,0.09);
+    --line-dark: rgba(16,24,32,0.1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,30,51,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+    color:#fff;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:600; font-size:16px;
+    color:#fff; text-decoration:none;
+  }
+  .brand .mark{
+    width:26px;height:26px;
+    border:1.5px solid var(--teal);
+    border-radius:4px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px; color:var(--teal);
+  }
+  .navlinks{ display:flex; gap:32px; font-size:14px; }
+  .navlinks a{ text-decoration:none; color:rgba(255,255,255,0.75); transition:color .15s; }
+  .navlinks a:hover{ color:#fff; }
+  .navlinks a:focus-visible, a:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+  @media (max-width:760px){ .navlinks{display:none;} }
+
+  /* HERO */
+  .hero{
+    background:
+      radial-gradient(1100px 500px at 78% -10%, rgba(18,166,160,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color:#fff;
+    padding:96px 0 80px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} .hero{padding:64px 0 56px;} }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px; letter-spacing:0.06em;
+    color:var(--teal);
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:7px;height:7px;border-radius:50%;
+    background:var(--teal);
+    box-shadow:0 0 0 4px rgba(18,166,160,0.18);
+  }
+  .hero h1{
+    font-size:clamp(34px,4.6vw,54px);
+    line-height:1.08;
+    font-weight:600;
+    color:#fff;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--teal);
+  }
+  .hero p.lede{
+    margin-top:22px;
+    font-size:17px;
+    line-height:1.65;
+    color:rgba(255,255,255,0.72);
+    max-width:52ch;
+  }
+  .cta-row{ margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px;
+    border-radius:6px;
+    font-size:14px; font-weight:500;
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{ background:var(--teal); color:#04201f; }
+  .btn-primary:hover{ background:#16bdb6; transform:translateY(-1px); }
+  .btn-ghost{ border-color:rgba(255,255,255,0.28); color:#fff; }
+  .btn-ghost:hover{ border-color:#fff; }
+
+  /* signature: assertion log */
+  .runlog{
+    background:#081422;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  .runlog-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:rgba(255,255,255,0.5);
+  }
+  .runlog-head .dots{ display:flex; gap:6px; }
+  .runlog-head .dots span{ width:8px;height:8px;border-radius:50%; background:rgba(255,255,255,0.18); }
+  .runlog-body{ padding:18px 16px 20px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; line-height:1.9; }
+  .runlog-line{ display:flex; gap:10px; color:rgba(255,255,255,0.55); opacity:0; animation:fadein .4s forwards; }
+  .runlog-line .status{ color:var(--teal); width:16px; flex:none; }
+  .runlog-line.suite{ color:rgba(255,255,255,0.85); margin-top:10px; }
+  .runlog-line.suite:first-child{ margin-top:0; }
+  .runlog-summary{
+    margin-top:14px; padding-top:14px; border-top:1px dashed var(--line);
+    display:flex; justify-content:space-between; color:#fff; opacity:0; animation:fadein .4s forwards;
+  }
+  .runlog-summary .pass{ color:var(--teal); font-weight:500; }
+  @keyframes fadein{ to{opacity:1;} }
+  @media (prefers-reduced-motion: reduce){
+    .runlog-line, .runlog-summary{ opacity:1; animation:none; }
+  }
+
+  /* trust bar */
+  .trust{
+    background:var(--steel);
+    color:rgba(255,255,255,0.7);
+    padding:16px 0;
+    font-size:13px;
+  }
+  .trust .wrap{ display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+  .trust .label{ font-family:'IBM Plex Mono',monospace; color:rgba(255,255,255,0.45); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; }
+
+  /* SECTION generic */
+  section{ padding:88px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--teal-dim);
+    margin-bottom:12px;
+    display:block;
+  }
+  .section-head h2{ font-size:clamp(26px,3vw,36px); font-weight:600; }
+  .section-head p{ margin-top:14px; color:#4a5568; font-size:15.5px; line-height:1.7; }
+
+  /* services grid */
+  .services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  @media (max-width:820px){ .services{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .services{grid-template-columns:1fr;} }
+  .service{
+    background:#fff;
+    padding:30px 26px;
+  }
+  .service .idx{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px; color:var(--teal-dim);
+    margin-bottom:16px; display:block;
+  }
+  .service h3{ font-size:17px; font-weight:600; margin-bottom:10px; }
+  .service p{ font-size:14px; color:#5a6472; line-height:1.6; margin:0; }
+
+  /* approach */
+  .approach{ background:#fff; }
+  .approach-list{ display:flex; flex-direction:column; }
+  .approach-item{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-top:1px solid var(--line-dark);
+  }
+  .approach-item:last-child{ border-bottom:1px solid var(--line-dark); }
+  .approach-item .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px; color:var(--teal-dim); padding-top:2px;
+  }
+  .approach-item h3{ font-size:17px; font-weight:600; margin-bottom:6px; }
+  .approach-item p{ font-size:14.5px; color:#5a6472; line-height:1.65; max-width:64ch; margin:0; }
+
+  /* industries */
+  .industries-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+  }
+  @media (max-width:760px){ .industries-grid{grid-template-columns:1fr 1fr;} }
+  .industry-chip{
+    border:1px solid var(--line-dark);
+    background:#fff;
+    border-radius:8px;
+    padding:20px 18px;
+    font-size:14px; font-weight:500;
+  }
+  .industry-chip .mono{ display:block; font-size:11px; color:var(--teal-dim); margin-bottom:6px; }
+
+  /* CTA band */
+  .cta-band{
+    background:var(--navy);
+    color:#fff;
+    padding:72px 0;
+  }
+  .cta-band .wrap{
+    display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  }
+  .cta-band h2{ font-size:clamp(24px,3vw,32px); font-weight:600; max-width:20ch; }
+  .cta-band p{ color:rgba(255,255,255,0.65); margin-top:10px; font-size:15px; }
+
+  footer{
+    background:var(--ink);
+    color:rgba(255,255,255,0.55);
+    padding:40px 0;
+    font-size:13px;
+  }
+  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  footer a{ text-decoration:none; color:rgba(255,255,255,0.55); }
+  footer a:hover{ color:#fff; }
+  .foot-reg{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:rgba(255,255,255,0.35); margin-top:6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#" class="brand"><span class="mark">RD</span> Rolva Digital Technologies</a>
+    <div class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn btn-primary" style="padding:9px 18px;">Talk to us</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Test automation &amp; quality engineering</span>
+      <h1>Engineering quality.<br><em>Delivering confidence.</em></h1>
+      <p class="lede">We build the automation frameworks and testing discipline that let banks, fintechs and enterprises ship critical systems without surprises — from API and regression suites to CBPR+ and SWIFT payment testing.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Start a conversation</a>
+        <a href="#services" class="btn btn-ghost">See what we do</a>
+      </div>
+    </div>
+    <div class="runlog" role="img" aria-label="Sample automated test run showing passing suites for payments, regression, and API test coverage">
+      <div class="runlog-head">
+        <span>rolva-digital / regression-suite</span>
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="runlog-body" id="runlog-body"></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <span class="label">Built for</span>
+    <span>Banking &amp; financial services</span>
+    <span>Fintech</span>
+    <span>Insurance</span>
+    <span>Regulatory &amp; government systems</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">What we do</span>
+      <h2>Quality engineering, end to end</h2>
+      <p>From the first test strategy conversation to a CI pipeline that gates every release, we embed the automation practice — we don't just hand over a report.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <span class="idx">01</span>
+        <h3>Test automation frameworks</h3>
+        <p>Selenium and Playwright frameworks built in Java, designed to scale with your release cadence, not fight it.</p>
+      </div>
+      <div class="service">
+        <span class="idx">02</span>
+        <h3>API &amp; integration testing</h3>
+        <p>Contract-level and end-to-end API test coverage that catches breaking changes before they reach production.</p>
+      </div>
+      <div class="service">
+        <span class="idx">03</span>
+        <h3>Payments &amp; SWIFT testing</h3>
+        <p>CBPR+ and SWIFT message validation for banks and payment processors, built by engineers who know the standard.</p>
+      </div>
+      <div class="service">
+        <span class="idx">04</span>
+        <h3>CI/CD test integration</h3>
+        <p>Automated suites wired directly into your pipeline, so quality gates release decisions instead of trailing them.</p>
+      </div>
+      <div class="service">
+        <span class="idx">05</span>
+        <h3>Quality strategy &amp; consulting</h3>
+        <p>Test strategy, coverage assessments and QA maturity roadmaps for teams scaling their engineering practice.</p>
+      </div>
+      <div class="service">
+        <span class="idx">06</span>
+        <h3>Regression &amp; risk-based testing</h3>
+        <p>Targeted regression suites built around what actually breaks — not exhaustive coverage for its own sake.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach" class="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">How we work</span>
+      <h2>A practice, not a project</h2>
+      <p>Enterprise QA needs consistency across releases, not a one-off engagement. Here's the shape of most engagements.</p>
+    </div>
+    <div class="approach-list">
+      <div class="approach-item">
+        <span class="num mono">01</span>
+        <div><h3>Assess</h3><p>We review current coverage, tooling and release risk to find where automation pays off first.</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="num mono">02</span>
+        <div><h3>Build</h3><p>Frameworks and suites are built against your real systems and standards — not a generic template.</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="num mono">03</span>
+        <div><h3>Integrate</h3><p>Tests are wired into your CI/CD pipeline so they run — and gate releases — without manual triggering.</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="num mono">04</span>
+        <div><h3>Hand over &amp; support</h3><p>Your team owns the framework going forward, with documentation and support as coverage grows.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Who we work with</span>
+      <h2>Industries where quality can't be optional</h2>
+    </div>
+    <div class="industries-grid">
+      <div class="industry-chip"><span class="mono">01</span>Banking &amp; financial institutions</div>
+      <div class="industry-chip"><span class="mono">02</span>Fintech</div>
+      <div class="industry-chip"><span class="mono">03</span>Insurance</div>
+      <div class="industry-chip"><span class="mono">04</span>Software development firms</div>
+      <div class="industry-chip"><span class="mono">05</span>Corporate enterprises</div>
+      <div class="industry-chip"><span class="mono">06</span>Government &amp; regulatory bodies</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <div>
+      <h2>Have a release that can't afford to break?</h2>
+      <p>Tell us what you're building — we'll tell you where automation earns its keep first.</p>
+    </div>
+    <a href="#contact" class="btn btn-primary">Get in touch</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Get in touch</span>
+      <h2>Let's talk about your test coverage</h2>
+      <p>Reach out directly — we'll respond with next steps for a scoping conversation.</p>
+    </div>
+    <div style="display:flex; gap:40px; flex-wrap:wrap;">
+      <div>
+        <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Email</div>
+        <a href="mailto:mashalerolva@gmail.com" style="font-size:18px; font-weight:500; text-decoration:none;">mashalerolva@gmail.com</a>
+      </div>
+      <div>
+        <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Based in</div>
+        <div style="font-size:18px; font-weight:500;">Johannesburg, South Africa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div>© <span id="year"></span> Rolva Digital Technologies (Pty) Ltd. All rights reserved.</div>
+      <div class="foot-reg">Registration No. 2026/677492/07</div>
+    </div>
+    <div><a href="mailto:mashalerolva@gmail.com">mashalerolva@gmail.com</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const lines = [
+    { type:'suite', text:'▸ suites/payments-cbpr-swift.spec' },
+    { type:'line', text:'ISO20022 message validation' },
+    { type:'line', text:'SWIFT gpi tracking assertions' },
+    { type:'suite', text:'▸ suites/api-regression.spec' },
+    { type:'line', text:'contract schema checks (48)' },
+    { type:'line', text:'auth &amp; session boundary tests' },
+    { type:'suite', text:'▸ suites/ui-e2e.spec (Playwright)' },
+    { type:'line', text:'critical user journeys (22)' },
+  ];
+
+  const body = document.getElementById('runlog-body');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  lines.forEach((l, i) => {
+    const div = document.createElement('div');
+    div.className = 'runlog-line' + (l.type === 'suite' ? ' suite' : '');
+    if (l.type === 'line') {
+      div.innerHTML = '<span class="status">✓</span><span>' + l.text + '</span>';
+    } else {
+      div.innerHTML = '<span></span><span>' + l.text + '</span>';
+    }
+    if (!prefersReduced) div.style.animationDelay = (i * 0.12) + 's';
+    body.appendChild(div);
+  });
+
+  const summary = document.createElement('div');
+  summary.className = 'runlog-summary';
+  summary.innerHTML = '<span class="pass">74 passed</span><span>0 failed · 4.2s</span>';
+  if (!prefersReduced) summary.style.animationDelay = (lines.length * 0.12 + 0.15) + 's';
+  body.appendChild(summary);
+</script>
+
+</body>
+</html>
