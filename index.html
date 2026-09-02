@@ -263,6 +263,119 @@
   .cta-band h2{ font-size:clamp(24px,3vw,32px); font-weight:600; max-width:20ch; }
   .cta-band p{ color:rgba(255,255,255,0.65); margin-top:10px; font-size:15px; }
 
+  /* ABOUT */
+  .about{ background:#fff; }
+  .about-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:start;
+  }
+  @media (max-width:840px){ .about-grid{grid-template-columns:1fr;} }
+  .about-copy p{ font-size:15.5px; line-height:1.75; color:#3d4652; margin:0 0 16px; }
+  .about-stats{
+    display:grid; grid-template-columns: 1fr 1fr; gap:1px;
+    background:var(--line-dark); border:1px solid var(--line-dark); border-radius:12px; overflow:hidden;
+  }
+  .about-stat{ background:#fbfbfc; padding:24px 22px; }
+  .about-stat .num{ font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:600; color:var(--navy); }
+  .about-stat .lbl{ font-size:13px; color:#5a6472; margin-top:4px; }
+
+  .placeholder-badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--teal-dim);
+    background:rgba(18,166,160,0.09);
+    border:1px solid rgba(18,166,160,0.25);
+    padding:3px 8px; border-radius:4px;
+    margin-bottom:14px;
+  }
+
+  /* CASE STUDIES */
+  .work{ background:var(--paper); }
+  .work-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .work-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .work-grid{grid-template-columns:1fr;} }
+  .work-card{
+    background:#fff; border:1px solid var(--line-dark); border-radius:12px;
+    padding:26px; display:flex; flex-direction:column; gap:10px;
+  }
+  .work-card .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal-dim); text-transform:uppercase; }
+  .work-card h3{ font-size:16.5px; font-weight:600; }
+  .work-card p{ font-size:14px; color:#5a6472; line-height:1.6; margin:0; }
+  .work-card .metric{
+    margin-top:auto; padding-top:14px; border-top:1px dashed var(--line-dark);
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8a93a0;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials{ background:#fff; }
+  .testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .testimonial-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .testimonial-grid{grid-template-columns:1fr;} }
+  .testimonial-card{
+    border:1px dashed rgba(16,24,32,0.18);
+    border-radius:12px;
+    padding:26px;
+    background:repeating-linear-gradient(135deg, rgba(16,24,32,0.015), rgba(16,24,32,0.015) 10px, transparent 10px, transparent 20px);
+  }
+  .testimonial-card p{ font-size:14.5px; color:#5a6472; line-height:1.7; margin:0 0 16px; font-style:italic; }
+  .testimonial-card .who{ font-size:13px; font-weight:600; color:#8a93a0; }
+  .testimonial-card .role{ font-size:12px; color:#a3abb5; }
+
+  /* PRICING */
+  .pricing{ background:var(--paper); }
+  .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .pricing-grid{grid-template-columns:1fr;} }
+  .price-card{
+    background:#fff; border:1px solid var(--line-dark); border-radius:14px;
+    padding:32px 28px; display:flex; flex-direction:column;
+  }
+  .price-card.featured{ border-color:var(--teal); box-shadow:0 20px 40px -28px rgba(18,166,160,0.5); position:relative; }
+  .price-card.featured::before{
+    content:'Most requested';
+    position:absolute; top:-12px; left:28px;
+    background:var(--teal); color:#04201f;
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.04em;
+    padding:4px 10px; border-radius:4px;
+  }
+  .price-card h3{ font-size:18px; font-weight:600; }
+  .price-card .price{ font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:600; color:var(--navy); margin-top:10px; }
+  .price-card .price span{ font-size:13px; font-weight:400; color:#8a93a0; }
+  .price-card .desc{ font-size:13.5px; color:#5a6472; margin-top:8px; line-height:1.6; }
+  .price-card ul{ list-style:none; padding:0; margin:22px 0; display:flex; flex-direction:column; gap:11px; flex:1; }
+  .price-card li{ font-size:13.5px; color:#3d4652; display:flex; gap:9px; align-items:flex-start; }
+  .price-card li::before{ content:'✓'; color:var(--teal-dim); font-weight:600; flex:none; }
+  .price-card .btn{ align-self:flex-start; margin-top:auto; }
+
+  /* BLOG */
+  .blog{ background:#fff; }
+  .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:900px){ .blog-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .blog-grid{grid-template-columns:1fr;} }
+  .blog-card{
+    border:1px solid var(--line-dark); border-radius:12px; padding:24px; background:var(--paper);
+  }
+  .blog-card .date{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--teal-dim); text-transform:uppercase; }
+  .blog-card h3{ font-size:16px; font-weight:600; margin-top:10px; line-height:1.4; }
+  .blog-card p{ font-size:13.5px; color:#5a6472; margin-top:10px; line-height:1.6; }
+  .blog-card .soon{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:#a3abb5; margin-top:14px; display:block; }
+
+  /* CONTACT FORM */
+  .contact-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; }
+  @media (max-width:840px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-form{ display:flex; flex-direction:column; gap:16px; }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:12.5px; font-weight:500; color:#3d4652; }
+  .field input, .field textarea{
+    font-family:'Inter',sans-serif; font-size:14px;
+    padding:12px 14px; border-radius:7px;
+    border:1px solid var(--line-dark);
+    background:#fff; color:var(--ink);
+    resize:vertical;
+  }
+  .field input:focus, .field textarea:focus{ outline:2px solid var(--teal); outline-offset:1px; }
+  .contact-form .btn{ align-self:flex-start; border:none; font-family:'Inter',sans-serif; cursor:pointer; }
+  .form-note{ font-size:12px; color:#8a93a0; margin-top:-4px; }
+
   footer{
     background:var(--ink);
     color:rgba(255,255,255,0.55);
@@ -281,9 +394,11 @@
   <nav class="wrap">
     <a href="#" class="brand"><span class="mark">RD</span> Rolva Digital Technologies</a>
     <div class="navlinks">
+      <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#approach">Approach</a>
-      <a href="#industries">Industries</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#blog">Insights</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="btn btn-primary" style="padding:9px 18px;">Talk to us</a>
@@ -320,6 +435,27 @@
     <span>Regulatory &amp; government systems</span>
   </div>
 </div>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">About us</span>
+      <h2>Built by an engineer who tests for a living</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>Rolva Digital Technologies (Pty) Ltd is a South African quality engineering consultancy, founded to bring enterprise-grade test automation practices to teams that need to ship reliably — not just quickly.</p>
+        <p>The practice is led by a test automation engineer and QA specialist with hands-on experience building regression and payment-testing suites inside a major banking group, now applied to clients directly: real frameworks, wired into real pipelines, owned by your team when we're done.</p>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat"><div class="num">4+</div><div class="lbl">Years in QA &amp; test automation</div></div>
+        <div class="about-stat"><div class="num">2026</div><div class="lbl">Founded, Johannesburg</div></div>
+        <div class="about-stat"><div class="num">Java</div><div class="lbl">Selenium &amp; Playwright frameworks</div></div>
+        <div class="about-stat"><div class="num">SWIFT</div><div class="lbl">CBPR+ payment testing experience</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap">
@@ -363,6 +499,39 @@
   </div>
 </section>
 
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Our work</span>
+      <h2>What an engagement looks like</h2>
+      <p>Rolva Digital Technologies is a newly registered practice — these are illustrative engagement types, not past client work. Real case studies will replace these as projects complete.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <span class="placeholder-badge">Illustrative</span>
+        <span class="tag">Banking / payments</span>
+        <h3>Payment message regression suite</h3>
+        <p>Building an automated regression suite around SWIFT/CBPR+ message validation for a payments platform, integrated into existing release pipelines.</p>
+        <div class="metric">Typical scope: 4–8 weeks</div>
+      </div>
+      <div class="work-card">
+        <span class="placeholder-badge">Illustrative</span>
+        <span class="tag">Fintech</span>
+        <h3>API test coverage buildout</h3>
+        <p>Standing up contract and end-to-end API tests for a growing fintech product, closing coverage gaps before a major release.</p>
+        <div class="metric">Typical scope: 3–6 weeks</div>
+      </div>
+      <div class="work-card">
+        <span class="placeholder-badge">Illustrative</span>
+        <span class="tag">Enterprise</span>
+        <h3>QA maturity assessment</h3>
+        <p>Reviewing an existing test practice, identifying automation opportunities, and producing a prioritized roadmap for the team to execute.</p>
+        <div class="metric">Typical scope: 2–3 weeks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="approach" class="approach">
   <div class="wrap">
     <div class="section-head">
@@ -391,6 +560,36 @@
   </div>
 </section>
 
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Client feedback</span>
+      <h2>What clients say</h2>
+      <p>No engagements have completed yet — these slots will carry real client feedback as projects wrap up.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <span class="placeholder-badge">Awaiting feedback</span>
+        <p>Client testimonial will appear here once the first engagement is complete.</p>
+        <div class="who">—</div>
+        <div class="role">Reserved for client feedback</div>
+      </div>
+      <div class="testimonial-card">
+        <span class="placeholder-badge">Awaiting feedback</span>
+        <p>Client testimonial will appear here once the first engagement is complete.</p>
+        <div class="who">—</div>
+        <div class="role">Reserved for client feedback</div>
+      </div>
+      <div class="testimonial-card">
+        <span class="placeholder-badge">Awaiting feedback</span>
+        <p>Client testimonial will appear here once the first engagement is complete.</p>
+        <div class="who">—</div>
+        <div class="role">Reserved for client feedback</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="industries">
   <div class="wrap">
     <div class="section-head">
@@ -404,6 +603,82 @@
       <div class="industry-chip"><span class="mono">04</span>Software development firms</div>
       <div class="industry-chip"><span class="mono">05</span>Corporate enterprises</div>
       <div class="industry-chip"><span class="mono">06</span>Government &amp; regulatory bodies</div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Packages</span>
+      <h2>Straightforward engagement tiers</h2>
+      <p>Every engagement is scoped to the system involved, so these are starting points for a conversation, not fixed quotes.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Assessment</h3>
+        <div class="price">From quote <span>/ project</span></div>
+        <p class="desc">A focused review for teams that need clarity before committing to a build.</p>
+        <ul>
+          <li>Test coverage &amp; risk review</li>
+          <li>Tooling &amp; framework audit</li>
+          <li>Prioritized automation roadmap</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-dark); color:var(--ink);">Get a quote</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Automation Build</h3>
+        <div class="price">From quote <span>/ project</span></div>
+        <p class="desc">The core offering — a working framework built and integrated into your pipeline.</p>
+        <ul>
+          <li>Custom Selenium/Playwright framework</li>
+          <li>API or UI test suite build-out</li>
+          <li>CI/CD pipeline integration</li>
+          <li>Handover documentation</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Get a quote</a>
+      </div>
+      <div class="price-card">
+        <h3>Ongoing Support</h3>
+        <div class="price">From quote <span>/ month</span></div>
+        <p class="desc">Retainer-based support for teams that want continued coverage as the system evolves.</p>
+        <ul>
+          <li>Suite maintenance &amp; expansion</li>
+          <li>New feature test coverage</li>
+          <li>Monthly quality reporting</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-dark); color:var(--ink);">Get a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="blog">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Insights</span>
+      <h2>Notes from the practice</h2>
+      <p>Writing on test automation, payment testing, and QA practice — first posts coming soon.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <span class="date">Coming soon</span>
+        <h3>Getting started with CBPR+ message testing</h3>
+        <p>A practical look at validating ISO20022 payment messages before they hit production.</p>
+        <span class="soon">Draft in progress</span>
+      </div>
+      <div class="blog-card">
+        <span class="date">Coming soon</span>
+        <h3>When to automate — and when not to</h3>
+        <p>A risk-based framework for deciding what earns automation and what doesn't.</p>
+        <span class="soon">Draft in progress</span>
+      </div>
+      <div class="blog-card">
+        <span class="date">Coming soon</span>
+        <h3>Wiring test suites into CI/CD without slowing releases</h3>
+        <p>Practical patterns for keeping quality gates fast enough that teams don't route around them.</p>
+        <span class="soon">Draft in progress</span>
+      </div>
     </div>
   </div>
 </section>
@@ -423,17 +698,34 @@
     <div class="section-head">
       <span class="kicker">Get in touch</span>
       <h2>Let's talk about your test coverage</h2>
-      <p>Reach out directly — we'll respond with next steps for a scoping conversation.</p>
+      <p>Send a message directly, or reach out by email — we'll respond with next steps for a scoping conversation.</p>
     </div>
-    <div style="display:flex; gap:40px; flex-wrap:wrap;">
+    <div class="contact-grid">
       <div>
-        <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Email</div>
-        <a href="mailto:rolvadigitaltechnologies@gmail.com" style="font-size:18px; font-weight:500; text-decoration:none;">rolvadigitaltechnologies@gmail.com</a>
+        <div style="margin-bottom:28px;">
+          <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Email</div>
+          <a href="mailto:rolvadigitaltechnologies@gmail.com" style="font-size:18px; font-weight:500; text-decoration:none;">rolvadigitaltechnologies@gmail.com</a>
+        </div>
+        <div>
+          <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Based in</div>
+          <div style="font-size:18px; font-weight:500;">Johannesburg, South Africa</div>
+        </div>
       </div>
-      <div>
-        <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Based in</div>
-        <div style="font-size:18px; font-weight:500;">Johannesburg, South Africa</div>
-      </div>
+      <form class="contact-form" action="https://formspree.io/f/mnpqvvwz" method="POST">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="message">What are you looking to test?</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
     </div>
   </div>
 </section>
