@@ -75,6 +75,43 @@
   .navlinks a:focus-visible, a:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
   @media (max-width:760px){ .navlinks{display:none;} }
 
+  .nav-cta-desktop{ display:inline-flex; }
+  @media (max-width:760px){ .nav-cta-desktop{display:none;} }
+
+  .nav-toggle{
+    display:none;
+    background:none; border:1px solid rgba(255,255,255,0.25); border-radius:6px;
+    width:38px; height:38px;
+    align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:''; display:block; width:18px; height:2px; background:#fff;
+    position:relative; transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle span::before{ position:absolute; top:-6px; }
+  .nav-toggle span::after{ position:absolute; top:6px; }
+  @media (max-width:760px){ .nav-toggle{display:flex;} }
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:var(--navy-2);
+    border-top:1px solid var(--line);
+    padding:8px 0 18px;
+  }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    color:rgba(255,255,255,0.82);
+    text-decoration:none;
+    font-size:15px;
+    padding:13px 32px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .mobile-menu a:last-of-type{ border-bottom:none; }
+  .mobile-menu .btn{ margin:14px 32px 0; text-align:center; justify-content:center; }
+  @media (min-width:761px){ .mobile-menu{ display:none !important; } }
+
   /* HERO */
   .hero{
     background:
@@ -291,9 +328,9 @@
 
   /* CASE STUDIES */
   .work{ background:var(--paper); }
-  .work-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  @media (max-width:900px){ .work-grid{grid-template-columns:1fr 1fr;} }
-  @media (max-width:600px){ .work-grid{grid-template-columns:1fr;} }
+  .work-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  @media (max-width:980px){ .work-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .work-grid{grid-template-columns:1fr;} }
   .work-card{
     background:#fff; border:1px solid var(--line-dark); border-radius:12px;
     padding:26px; display:flex; flex-direction:column; gap:10px;
@@ -323,9 +360,9 @@
 
   /* PRICING */
   .pricing{ background:var(--paper); }
-  .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  @media (max-width:1080px){ .pricing-grid{grid-template-columns:1fr 1fr !important;} }
-  @media (max-width:640px){ .pricing-grid{grid-template-columns:1fr !important;} }
+  .pricing-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  @media (max-width:1080px){ .pricing-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:640px){ .pricing-grid{grid-template-columns:1fr;} }
   .price-card{
     background:#fff; border:1px solid var(--line-dark); border-radius:14px;
     padding:32px 28px; display:flex; flex-direction:column;
@@ -387,6 +424,17 @@
   footer a{ text-decoration:none; color:rgba(255,255,255,0.55); }
   footer a:hover{ color:#fff; }
   .foot-reg{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:rgba(255,255,255,0.35); margin-top:6px; }
+
+  .whatsapp-float{
+    position:fixed; bottom:22px; right:22px; z-index:60;
+    width:54px; height:54px; border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px -6px rgba(0,0,0,0.35);
+    transition:transform .15s ease;
+  }
+  .whatsapp-float:hover{ transform:scale(1.06); }
+  .whatsapp-float svg{ width:28px; height:28px; }
 </style>
 </head>
 <body>
@@ -402,8 +450,20 @@
       <a href="#blog">Insights</a>
       <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="btn btn-primary" style="padding:9px 18px;">Talk to us</a>
+    <a href="#contact" class="btn btn-primary nav-cta-desktop" style="padding:9px 18px;">Talk to us</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#blog">Insights</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary">Talk to us</a>
+  </div>
 </header>
 
 <section class="hero">
@@ -516,6 +576,11 @@
         <h3>Courses &amp; training</h3>
         <p>Learn-to-code and other skills training, taught with the same practical, project-first approach the practice builds with.</p>
       </div>
+      <div class="service">
+        <span class="idx">11</span>
+        <h3>Data analysis</h3>
+        <p>Turning raw data into clear reporting and insight — cleaning, analysis, and dashboards that support real decisions.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -527,7 +592,7 @@
       <h2>What an engagement looks like</h2>
       <p>Rolva Digital Technologies is a newly registered practice — these are illustrative engagement types, not past client work. Real case studies will replace these as projects complete.</p>
     </div>
-    <div class="work-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="work-grid">
       <div class="work-card">
         <span class="placeholder-badge">Illustrative</span>
         <span class="tag">Banking / payments</span>
@@ -642,7 +707,7 @@
       <h2>Straightforward engagement tiers</h2>
       <p>Every engagement is scoped to the work involved, so these are starting points for a conversation, not fixed quotes.</p>
     </div>
-    <div class="pricing-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="pricing-grid">
       <div class="price-card">
         <h3>Quick Services</h3>
         <div class="price">From quote <span>/ item</span></div>
@@ -735,8 +800,8 @@
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">Get in touch</span>
-      <h2>Let's talk about your test coverage</h2>
-      <p>Send a message directly, or reach out by email — we'll respond with next steps for a scoping conversation.</p>
+      <h2>Let's talk about what you need</h2>
+      <p>Send a message directly, call, or reach out on WhatsApp — we'll respond with next steps.</p>
     </div>
     <div class="contact-grid">
       <div>
@@ -744,12 +809,17 @@
           <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Email</div>
           <a href="mailto:rolvadigitaltechnologies@gmail.com" style="font-size:18px; font-weight:500; text-decoration:none;">rolvadigitaltechnologies@gmail.com</a>
         </div>
+        <div style="margin-bottom:28px;">
+          <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Phone &amp; WhatsApp</div>
+          <a href="tel:+27786799418" style="font-size:18px; font-weight:500; text-decoration:none; display:block;">+27 78 679 9418</a>
+          <a href="https://wa.me/27786799418" target="_blank" rel="noopener" style="font-size:13px; color:var(--teal-dim); text-decoration:none; display:inline-block; margin-top:4px;">Chat on WhatsApp →</a>
+        </div>
         <div>
           <div class="mono" style="font-size:11px; color:var(--teal-dim); text-transform:uppercase; margin-bottom:6px;">Based in</div>
           <div style="font-size:18px; font-weight:500;">Johannesburg, South Africa</div>
         </div>
       </div>
-      <form class="contact-form" action="https://formspree.io/f/mnpqvvwz" method="POST">
+      <form class="contact-form" action="https://formspree.io/f/myeyjjql" method="POST">
         <div class="field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
@@ -774,9 +844,16 @@
       <div>© <span id="year"></span> Rolva Digital Technologies (Pty) Ltd. All rights reserved.</div>
       <div class="foot-reg">Registration No. 2026/677492/07</div>
     </div>
-    <div><a href="mailto:rolvadigitaltechnologies@gmail.com">rolvadigitaltechnologies@gmail.com</a></div>
+    <div style="text-align:right;">
+      <div><a href="mailto:rolvadigitaltechnologies@gmail.com">rolvadigitaltechnologies@gmail.com</a></div>
+      <div><a href="tel:+27786799418">+27 78 679 9418</a></div>
+    </div>
   </div>
 </footer>
+
+<a href="https://wa.me/27786799418" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.48 1.32 5L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7.01A9.86 9.86 0 0 0 12.04 2zm0 18.12h-.01a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.2-8.24 8.2zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.02 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -812,6 +889,20 @@
   summary.innerHTML = '<span class="pass">74 passed</span><span>0 failed · 4.2s</span>';
   if (!prefersReduced) summary.style.animationDelay = (lines.length * 0.12 + 0.15) + 's';
   body.appendChild(summary);
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
 </script>
 
 </body>
