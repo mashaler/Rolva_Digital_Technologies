@@ -411,6 +411,18 @@
     resize:vertical;
   }
   .field input:focus, .field textarea:focus{ outline:2px solid var(--teal); outline-offset:1px; }
+  .field input[type="file"]{
+    padding:9px 10px;
+    font-size:13px;
+    background:var(--paper);
+  }
+  .field input[type="file"]::file-selector-button{
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:500;
+    padding:8px 14px; margin-right:12px;
+    border:none; border-radius:5px;
+    background:var(--navy); color:#fff;
+    cursor:pointer;
+  }
   .contact-form .btn{ align-self:flex-start; border:none; font-family:'Inter',sans-serif; cursor:pointer; }
   .form-note{ font-size:12px; color:#8a93a0; margin-top:-4px; }
 
@@ -819,7 +831,7 @@
           <div style="font-size:18px; font-weight:500;">Johannesburg, South Africa</div>
         </div>
       </div>
-      <form class="contact-form" action="https://formspree.io/f/myeyjjql" method="POST">
+      <form class="contact-form" action="https://formspree.io/f/myeyjjql" method="POST" enctype="multipart/form-data">
         <div class="field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
@@ -829,8 +841,12 @@
           <input type="email" id="email" name="email" required>
         </div>
         <div class="field">
-          <label for="message">What are you looking to test?</label>
+          <label for="message">What do you need help with?</label>
           <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="field">
+          <label for="attachment">Attach a file or photo (optional)</label>
+          <input type="file" id="attachment" name="attachment" accept="image/*,.pdf,.doc,.docx">
         </div>
         <button type="submit" class="btn btn-primary">Send message</button>
       </form>
