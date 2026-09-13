@@ -324,7 +324,8 @@
   /* PRICING */
   .pricing{ background:var(--paper); }
   .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  @media (max-width:900px){ .pricing-grid{grid-template-columns:1fr;} }
+  @media (max-width:1080px){ .pricing-grid{grid-template-columns:1fr 1fr !important;} }
+  @media (max-width:640px){ .pricing-grid{grid-template-columns:1fr !important;} }
   .price-card{
     background:#fff; border:1px solid var(--line-dark); border-radius:14px;
     padding:32px 28px; display:flex; flex-direction:column;
@@ -408,9 +409,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Test automation &amp; quality engineering</span>
+      <span class="eyebrow">Digital &amp; IT solutions</span>
       <h1>Engineering quality.<br><em>Delivering confidence.</em></h1>
-      <p class="lede">We build the automation frameworks and testing discipline that let banks, fintechs and enterprises ship critical systems without surprises — from API and regression suites to CBPR+ and SWIFT payment testing.</p>
+      <p class="lede">A multi-service digital practice covering software development, test automation &amp; QA, design, career documents, and digital marketing — built by an engineer who ships reliable work for banks, businesses, and individuals alike.</p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">Start a conversation</a>
         <a href="#services" class="btn btn-ghost">See what we do</a>
@@ -430,9 +431,9 @@
   <div class="wrap">
     <span class="label">Built for</span>
     <span>Banking &amp; financial services</span>
-    <span>Fintech</span>
-    <span>Insurance</span>
-    <span>Regulatory &amp; government systems</span>
+    <span>Fintech &amp; enterprise</span>
+    <span>Small businesses</span>
+    <span>Individuals &amp; job seekers</span>
   </div>
 </div>
 
@@ -440,18 +441,18 @@
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">About us</span>
-      <h2>Built by an engineer who tests for a living</h2>
+      <h2>One practice, several disciplines</h2>
     </div>
     <div class="about-grid">
       <div class="about-copy">
-        <p>Rolva Digital Technologies (Pty) Ltd is a South African quality engineering consultancy, founded to bring enterprise-grade test automation practices to teams that need to ship reliably — not just quickly.</p>
-        <p>The practice is led by a test automation engineer and QA specialist with hands-on experience building regression and payment-testing suites inside a major banking group, now applied to clients directly: real frameworks, wired into real pipelines, owned by your team when we're done.</p>
+        <p>Rolva Digital Technologies (Pty) Ltd is a South African digital services practice covering software development, quality engineering, and design — built to be the one place you go for IT-related work, whether that's a full testing framework or a single polished document.</p>
+        <p>The practice is led by a test automation engineer and QA specialist with hands-on experience building regression and payment-testing suites inside a major banking group — that same engineering discipline carries through everything else the practice takes on.</p>
       </div>
       <div class="about-stats">
         <div class="about-stat"><div class="num">4+</div><div class="lbl">Years in QA &amp; test automation</div></div>
         <div class="about-stat"><div class="num">2026</div><div class="lbl">Founded, Johannesburg</div></div>
         <div class="about-stat"><div class="num">Java</div><div class="lbl">Selenium &amp; Playwright frameworks</div></div>
-        <div class="about-stat"><div class="num">SWIFT</div><div class="lbl">CBPR+ payment testing experience</div></div>
+        <div class="about-stat"><div class="num">Multi</div><div class="lbl">Dev, QA, design &amp; documents</div></div>
       </div>
     </div>
   </div>
@@ -461,39 +462,59 @@
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">What we do</span>
-      <h2>Quality engineering, end to end</h2>
-      <p>From the first test strategy conversation to a CI pipeline that gates every release, we embed the automation practice — we don't just hand over a report.</p>
+      <h2>Every IT-shaped problem, one point of contact</h2>
+      <p>From a working software system to a CV that gets you the interview — engineering discipline applied across the board, not just to code.</p>
     </div>
     <div class="services">
       <div class="service">
         <span class="idx">01</span>
-        <h3>Test automation frameworks</h3>
-        <p>Selenium and Playwright frameworks built in Java, designed to scale with your release cadence, not fight it.</p>
+        <h3>Software development</h3>
+        <p>Web apps, internal tools, and custom systems built end-to-end — from first requirements to a working, maintainable product.</p>
       </div>
       <div class="service">
         <span class="idx">02</span>
-        <h3>API &amp; integration testing</h3>
-        <p>Contract-level and end-to-end API test coverage that catches breaking changes before they reach production.</p>
+        <h3>Test automation &amp; QA</h3>
+        <p>Selenium and Playwright frameworks, API test coverage, and regression suites wired into CI/CD — the practice's founding strength.</p>
       </div>
       <div class="service">
         <span class="idx">03</span>
         <h3>Payments &amp; SWIFT testing</h3>
-        <p>CBPR+ and SWIFT message validation for banks and payment processors, built by engineers who know the standard.</p>
+        <p>CBPR+ and SWIFT message validation for banks and payment processors, built by someone who knows the standard.</p>
       </div>
       <div class="service">
         <span class="idx">04</span>
-        <h3>CI/CD test integration</h3>
-        <p>Automated suites wired directly into your pipeline, so quality gates release decisions instead of trailing them.</p>
+        <h3>IT consulting &amp; support</h3>
+        <p>Practical help with systems, tooling, and technical decisions for small businesses that don't have an in-house team.</p>
       </div>
       <div class="service">
         <span class="idx">05</span>
-        <h3>Quality strategy &amp; consulting</h3>
-        <p>Test strategy, coverage assessments and QA maturity roadmaps for teams scaling their engineering practice.</p>
+        <h3>CV &amp; career documents</h3>
+        <p>Professionally written and formatted CVs, cover letters, and LinkedIn profiles that hold up to recruiter scrutiny.</p>
       </div>
       <div class="service">
         <span class="idx">06</span>
-        <h3>Regression &amp; risk-based testing</h3>
-        <p>Targeted regression suites built around what actually breaks — not exhaustive coverage for its own sake.</p>
+        <h3>Posters &amp; graphic design</h3>
+        <p>Posters, flyers, and simple brand assets for businesses and individuals who need something to look right, fast.</p>
+      </div>
+      <div class="service">
+        <span class="idx">07</span>
+        <h3>Digital marketing</h3>
+        <p>Campaign setup, content strategy, and channel management to get a business found and followed up on.</p>
+      </div>
+      <div class="service">
+        <span class="idx">08</span>
+        <h3>Social media management</h3>
+        <p>Day-to-day content, scheduling, and community management so a brand stays active without eating your own time.</p>
+      </div>
+      <div class="service">
+        <span class="idx">09</span>
+        <h3>Video editing</h3>
+        <p>Edited, ready-to-post video for social, ads, or promotional use — from raw footage to a finished cut.</p>
+      </div>
+      <div class="service">
+        <span class="idx">10</span>
+        <h3>Courses &amp; training</h3>
+        <p>Learn-to-code and other skills training, taught with the same practical, project-first approach the practice builds with.</p>
       </div>
     </div>
   </div>
@@ -506,7 +527,7 @@
       <h2>What an engagement looks like</h2>
       <p>Rolva Digital Technologies is a newly registered practice — these are illustrative engagement types, not past client work. Real case studies will replace these as projects complete.</p>
     </div>
-    <div class="work-grid">
+    <div class="work-grid" style="grid-template-columns:repeat(4,1fr);">
       <div class="work-card">
         <span class="placeholder-badge">Illustrative</span>
         <span class="tag">Banking / payments</span>
@@ -528,6 +549,13 @@
         <p>Reviewing an existing test practice, identifying automation opportunities, and producing a prioritized roadmap for the team to execute.</p>
         <div class="metric">Typical scope: 2–3 weeks</div>
       </div>
+      <div class="work-card">
+        <span class="placeholder-badge">Illustrative</span>
+        <span class="tag">Individuals</span>
+        <h3>CV, cover letter &amp; LinkedIn refresh</h3>
+        <p>A tightened, recruiter-ready CV and LinkedIn profile for a job seeker moving into a more senior role.</p>
+        <div class="metric">Typical scope: 3–5 days</div>
+      </div>
     </div>
   </div>
 </section>
@@ -537,24 +565,24 @@
     <div class="section-head">
       <span class="kicker">How we work</span>
       <h2>A practice, not a project</h2>
-      <p>Enterprise QA needs consistency across releases, not a one-off engagement. Here's the shape of most engagements.</p>
+      <p>Whatever the deliverable — code, a test suite, or a document — the same discipline applies. Here's the shape of most engagements.</p>
     </div>
     <div class="approach-list">
       <div class="approach-item">
         <span class="num mono">01</span>
-        <div><h3>Assess</h3><p>We review current coverage, tooling and release risk to find where automation pays off first.</p></div>
+        <div><h3>Assess</h3><p>We review what you need, what already exists, and where the real risk or gap is before proposing an approach.</p></div>
       </div>
       <div class="approach-item">
         <span class="num mono">02</span>
-        <div><h3>Build</h3><p>Frameworks and suites are built against your real systems and standards — not a generic template.</p></div>
+        <div><h3>Build</h3><p>Work is built against your real systems, brand, or requirements — not a generic template stretched to fit.</p></div>
       </div>
       <div class="approach-item">
         <span class="num mono">03</span>
-        <div><h3>Integrate</h3><p>Tests are wired into your CI/CD pipeline so they run — and gate releases — without manual triggering.</p></div>
+        <div><h3>Integrate</h3><p>For technical work, that means wired into your pipeline and workflow. For documents and design, that means fitting how you'll actually use them.</p></div>
       </div>
       <div class="approach-item">
         <span class="num mono">04</span>
-        <div><h3>Hand over &amp; support</h3><p>Your team owns the framework going forward, with documentation and support as coverage grows.</p></div>
+        <div><h3>Hand over &amp; support</h3><p>You own the result outright, with documentation and support available as things evolve.</p></div>
       </div>
     </div>
   </div>
@@ -598,10 +626,10 @@
     </div>
     <div class="industries-grid">
       <div class="industry-chip"><span class="mono">01</span>Banking &amp; financial institutions</div>
-      <div class="industry-chip"><span class="mono">02</span>Fintech</div>
-      <div class="industry-chip"><span class="mono">03</span>Insurance</div>
+      <div class="industry-chip"><span class="mono">02</span>Fintech &amp; enterprise</div>
+      <div class="industry-chip"><span class="mono">03</span>Small &amp; growing businesses</div>
       <div class="industry-chip"><span class="mono">04</span>Software development firms</div>
-      <div class="industry-chip"><span class="mono">05</span>Corporate enterprises</div>
+      <div class="industry-chip"><span class="mono">05</span>Individuals &amp; job seekers</div>
       <div class="industry-chip"><span class="mono">06</span>Government &amp; regulatory bodies</div>
     </div>
   </div>
@@ -612,9 +640,20 @@
     <div class="section-head">
       <span class="kicker">Packages</span>
       <h2>Straightforward engagement tiers</h2>
-      <p>Every engagement is scoped to the system involved, so these are starting points for a conversation, not fixed quotes.</p>
+      <p>Every engagement is scoped to the work involved, so these are starting points for a conversation, not fixed quotes.</p>
     </div>
-    <div class="pricing-grid">
+    <div class="pricing-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="price-card">
+        <h3>Quick Services</h3>
+        <div class="price">From quote <span>/ item</span></div>
+        <p class="desc">CVs, cover letters, posters and quick design work — fast turnaround, individual pricing.</p>
+        <ul>
+          <li>CV &amp; cover letter writing</li>
+          <li>Poster &amp; flyer design</li>
+          <li>LinkedIn profile polish</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-dark); color:var(--ink);">Get a quote</a>
+      </div>
       <div class="price-card">
         <h3>Assessment</h3>
         <div class="price">From quote <span>/ project</span></div>
@@ -622,18 +661,17 @@
         <ul>
           <li>Test coverage &amp; risk review</li>
           <li>Tooling &amp; framework audit</li>
-          <li>Prioritized automation roadmap</li>
+          <li>Prioritized roadmap</li>
         </ul>
         <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-dark); color:var(--ink);">Get a quote</a>
       </div>
       <div class="price-card featured">
-        <h3>Automation Build</h3>
+        <h3>Build</h3>
         <div class="price">From quote <span>/ project</span></div>
-        <p class="desc">The core offering — a working framework built and integrated into your pipeline.</p>
+        <p class="desc">The core offering — software, test automation, or both, built and integrated end-to-end.</p>
         <ul>
-          <li>Custom Selenium/Playwright framework</li>
-          <li>API or UI test suite build-out</li>
-          <li>CI/CD pipeline integration</li>
+          <li>Custom software or automation build</li>
+          <li>Test suite &amp; CI/CD integration</li>
           <li>Handover documentation</li>
         </ul>
         <a href="#contact" class="btn btn-primary">Get a quote</a>
@@ -641,11 +679,11 @@
       <div class="price-card">
         <h3>Ongoing Support</h3>
         <div class="price">From quote <span>/ month</span></div>
-        <p class="desc">Retainer-based support for teams that want continued coverage as the system evolves.</p>
+        <p class="desc">Retainer-based support for teams that want continued coverage as things evolve.</p>
         <ul>
-          <li>Suite maintenance &amp; expansion</li>
-          <li>New feature test coverage</li>
-          <li>Monthly quality reporting</li>
+          <li>Maintenance &amp; expansion</li>
+          <li>New feature coverage</li>
+          <li>Monthly reporting</li>
         </ul>
         <a href="#contact" class="btn btn-ghost" style="border-color:var(--line-dark); color:var(--ink);">Get a quote</a>
       </div>
@@ -658,7 +696,7 @@
     <div class="section-head">
       <span class="kicker">Insights</span>
       <h2>Notes from the practice</h2>
-      <p>Writing on test automation, payment testing, and QA practice — first posts coming soon.</p>
+      <p>Writing on software quality, IT practice, and career tools — first posts coming soon.</p>
     </div>
     <div class="blog-grid">
       <div class="blog-card">
@@ -669,8 +707,8 @@
       </div>
       <div class="blog-card">
         <span class="date">Coming soon</span>
-        <h3>When to automate — and when not to</h3>
-        <p>A risk-based framework for deciding what earns automation and what doesn't.</p>
+        <h3>What actually gets a CV past a recruiter</h3>
+        <p>Formatting and content choices that hold up under real recruiter scrutiny, not just ATS keyword stuffing.</p>
         <span class="soon">Draft in progress</span>
       </div>
       <div class="blog-card">
@@ -711,7 +749,7 @@
           <div style="font-size:18px; font-weight:500;">Johannesburg, South Africa</div>
         </div>
       </div>
-      <form class="contact-form" action="https://formspree.io/f/myeyjjql" method="POST">
+      <form class="contact-form" action="https://formspree.io/f/mnpqvvwz" method="POST">
         <div class="field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
