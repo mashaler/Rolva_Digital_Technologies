@@ -378,6 +378,25 @@
   .field textarea { min-height: 120px; resize: vertical; }
   .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.4); }
   .field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+  .field input[type="file"] {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 13.5px;
+  }
+  .field input[type="file"]::file-selector-button {
+    background: rgba(255,255,255,0.16);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--radius);
+    padding: 8px 14px;
+    margin-right: 12px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .field input[type="file"]::file-selector-button:hover { background: rgba(255,255,255,0.26); }
   .form-note { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 2px; }
 
   /* ---------- Thank-you state ---------- */
@@ -712,6 +731,11 @@
       <div class="field">
         <label for="challenge">Tell us about your tech challenge</label>
         <textarea id="challenge" name="message" placeholder="What's slow, broken, outdated, or missing?" required></textarea>
+      </div>
+      <div class="field">
+        <label for="attachment">Attach files (optional)</label>
+        <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.gif,.webp" multiple>
+        <p class="form-note" style="margin-top:8px;">Screenshots, documents, or photos help us understand the problem faster — PDF, Word, or image files, a few at a time.</p>
       </div>
       <input type="hidden" name="_subject" value="New lead from Rolva website">
       <input type="hidden" name="_next" value="index.html#thank-you">
