@@ -6,44 +6,49 @@
 <title>Rolva Digital Technologies — Your Complete Digital & IT Solutions Partner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #FAF9F6;
-    --paper-raised: #F0EEE9;
-    --ink: #1C2333;
-    --ink-soft: #5B6172;
-    --line: rgba(28, 35, 51, 0.12);
-    --primary: #3355D6;
-    --primary-deep: #263FA6;
-    --amber: #F2703C;
-    --paper-on-dark: #F5F2EA;
-    --radius: 3px;
-    --serif: "Fraunces", Georgia, "Times New Roman", serif;
-    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --ink: #10182B;
+    --ink-soft: #55607A;
+    --ink-faint: #8892A6;
+    --paper: #FFFFFF;
+    --paper-alt: #F5F6F9;
+    --line: rgba(16, 24, 43, 0.11);
+    --primary: #1F3D7A;
+    --primary-deep: #16295C;
+    --gold: #B8873A;
+    --success: #2F8F5B;
+    --radius: 6px;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #161A2B;
-      --paper-raised: #1E2338;
-      --ink: #F1F1F6;
-      --ink-soft: #A9AEC2;
-      --line: rgba(241, 241, 246, 0.14);
-      --primary: #7B93F0;
-      --primary-deep: #93A7F5;
-      --amber: #F58A5C;
+      --ink: #F2F3F7;
+      --ink-soft: #A7B0C4;
+      --ink-faint: #6E778D;
+      --paper: #0A1120;
+      --paper-alt: #101A2E;
+      --line: rgba(242, 243, 247, 0.14);
+      --primary: #7691DE;
+      --primary-deep: #9AB0E8;
+      --gold: #D9AC5E;
+      --success: #4CAE7E;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #161A2B;
-    --paper-raised: #1E2338;
-    --ink: #F1F1F6;
-    --ink-soft: #A9AEC2;
-    --line: rgba(241, 241, 246, 0.14);
-    --primary: #7B93F0;
-    --primary-deep: #93A7F5;
-    --amber: #F58A5C;
+    --ink: #F2F3F7;
+    --ink-soft: #A7B0C4;
+    --ink-faint: #6E778D;
+    --paper: #0A1120;
+    --paper-alt: #101A2E;
+    --line: rgba(242, 243, 247, 0.14);
+    --primary: #7691DE;
+    --primary-deep: #9AB0E8;
+    --gold: #D9AC5E;
+    --success: #4CAE7E;
   }
 
   * { box-sizing: border-box; }
@@ -57,27 +62,21 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  img { max-width: 100%; }
+  img, svg { max-width: 100%; }
   a { color: inherit; }
-  .wrap {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-  h1, h2, h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-  .section-pad { padding: 108px 0; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spacing: -0.005em; }
+  p { margin: 0; }
+  .section-pad { padding: 100px 0; }
+  .section-pad + .section-pad,
+  .section-pad + section > .section-pad { border-top: 1px solid var(--line); }
   @media (max-width: 720px) {
-    .section-pad { padding: 60px 0; }
+    .section-pad { padding: 64px 0; }
     .wrap { padding: 0 20px; }
   }
-  @media (max-width: 420px) {
-    .wrap { padding: 0 16px; }
-  }
+  @media (max-width: 420px) { .wrap { padding: 0 16px; } }
+
+  .eyebrow-label { font-size: 14px; color: var(--primary); font-weight: 600; margin-bottom: 14px; }
 
   /* ---------- Buttons ---------- */
   .btn {
@@ -92,15 +91,17 @@
     text-decoration: none;
     cursor: pointer;
     border: 1px solid transparent;
-    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
-  .btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
-  .btn-primary { background: var(--primary); color: #FBFAF6; }
+  .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .btn-primary { background: var(--primary); color: #FFFFFF; }
   .btn-primary:hover { background: var(--primary-deep); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-  .btn-ghost:hover { border-color: var(--ink-soft); }
-  .btn-dark { background: var(--ink); color: var(--paper); }
-  .btn-dark:hover { transform: translateY(-1px); }
+  .btn-ghost:hover { border-color: var(--ink-faint); }
+  .btn-on-dark { background: #FFFFFF; color: var(--primary-deep); }
+  .btn-on-dark:hover { background: #E9EDF7; }
+  .btn-ghost-on-dark { background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,0.32); }
+  .btn-ghost-on-dark:hover { border-color: rgba(255,255,255,0.6); }
 
   /* ---------- Header ---------- */
   header {
@@ -111,39 +112,12 @@
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--line);
   }
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-  }
-  .logo {
-    font-family: var(--serif);
-    font-size: 21px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-  .logo span { color: var(--primary); }
-  .logo-sub {
-    font-family: var(--sans);
-    font-size: 12.5px;
-    font-weight: 500;
-    color: var(--ink-soft);
-    letter-spacing: 0.01em;
-    margin-left: 2px;
-  }
-  .footer-brand .logo-sub { color: rgba(245,242,234,0.55); }
-  @media (max-width: 560px) {
-    .logo-sub { display: none; }
-  }
-  .nav-links {
-    display: flex;
-    gap: 34px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 14.5px;
-  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .logo { font-family: var(--serif); font-size: 21px; font-weight: 500; display: flex; align-items: baseline; gap: 8px; }
+  .logo-mark { color: var(--primary); }
+  .logo-sub { font-family: var(--sans); font-size: 12.5px; font-weight: 500; color: var(--ink-soft); letter-spacing: 0.01em; }
+  @media (max-width: 560px) { .logo-sub { display: none; } }
+  .nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font-size: 14.5px; }
   .nav-links a { text-decoration: none; color: var(--ink-soft); }
   .nav-links a:hover { color: var(--ink); }
   .nav-cta { display: flex; align-items: center; gap: 18px; }
@@ -152,15 +126,13 @@
     background: transparent;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
+    width: 42px; height: 42px;
+    align-items: center; justify-content: center;
     color: var(--ink);
     cursor: pointer;
     padding: 0;
   }
-  .nav-toggle:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .nav-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   .mobile-menu {
     display: none;
     flex-direction: column;
@@ -170,20 +142,12 @@
     background: var(--paper);
   }
   .mobile-menu ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
-  .mobile-menu a {
-    text-decoration: none;
-    color: var(--ink);
-    font-size: 16.5px;
-    font-weight: 500;
-    padding: 10px 4px;
-    display: block;
-  }
+  .mobile-menu a { text-decoration: none; color: var(--ink); font-size: 16.5px; font-weight: 500; padding: 10px 4px; display: block; }
   header.menu-open .mobile-menu { display: flex; }
   header.menu-open .nt-top { transform: translateY(6px) rotate(45deg); transform-origin: center; }
   header.menu-open .nt-bot { transform: translateY(-6px) rotate(-45deg); transform-origin: center; }
   header.menu-open .nt-mid { opacity: 0; }
   .nt-line { transition: transform 0.18s ease, opacity 0.18s ease; }
-
   @media (max-width: 860px) {
     .nav-links { display: none; }
     .nav-cta { display: none; }
@@ -191,331 +155,239 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero {
-    padding: 88px 0 96px;
-    border-bottom: 1px solid var(--line);
+  .hero { padding: 84px 0 100px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
+  @media (max-width: 940px) {
+    .hero { padding: 52px 0 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 56px;
-    align-items: center;
-  }
-  @media (max-width: 900px) {
-    .hero { padding: 56px 0 64px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  }
+  .hero h1 { font-size: clamp(2.15rem, 4vw, 3.15rem); line-height: 1.12; max-width: 16ch; }
+  .hero p.lede { margin: 24px 0 34px; font-size: 18px; color: var(--ink-soft); max-width: 44ch; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
   @media (max-width: 480px) {
     .hero-ctas { flex-direction: column; align-items: stretch; }
     .hero-ctas .btn { justify-content: center; }
   }
-  .hero-kicker {
-    font-size: 14.5px;
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 18px;
-  }
-  .hero h1 {
-    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-    line-height: 1.08;
-    max-width: 15ch;
-  }
-  .hero p.lede {
-    margin: 26px 0 36px;
-    font-size: 18px;
-    color: var(--ink-soft);
-    max-width: 46ch;
-  }
-  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
-  .hero-trust {
-    margin-top: 30px;
-    font-size: 13.5px;
-    color: var(--ink-soft);
-  }
+  .hero-trust { margin-top: 28px; font-size: 13.5px; color: var(--ink-faint); }
 
-  /* schematic diagram */
-  .diagram { width: 100%; height: auto; }
-  .diagram-wrap {
-    background: var(--paper-raised);
+  /* Dashboard mockup */
+  .dash {
+    background: var(--paper-alt);
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 28px;
-  }
-
-  /* ---------- Services / systems map ---------- */
-  .services-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 40px;
-    margin-bottom: 56px;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 32px;
-  }
-  @media (max-width: 720px) {
-    .services-head { flex-direction: column; align-items: flex-start; gap: 16px; }
-  }
-  .services-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); max-width: 14ch; }
-  .services-head p { max-width: 40ch; color: var(--ink-soft); margin: 0; }
-
-  .service-map {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
+    border-radius: 10px;
     overflow: hidden;
   }
-  @media (max-width: 720px) {
-    .service-map { grid-template-columns: 1fr; }
-  }
-  .service-panel {
-    padding: 40px;
-    border-right: 1px solid var(--line);
+  .dash-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
     border-bottom: 1px solid var(--line);
-    position: relative;
+    background: var(--paper);
   }
-  .service-panel:nth-child(2n) { border-right: none; }
-  .service-panel:nth-child(3), .service-panel:nth-child(4) { border-bottom: none; }
-  @media (max-width: 720px) {
-    .service-panel { border-right: none !important; padding: 30px 24px; }
-    .service-panel:nth-child(4) { border-bottom: none; }
+  .dash-bar-title { font-size: 13.5px; font-weight: 600; color: var(--ink-soft); }
+  .dash-bar-dots { display: flex; gap: 6px; }
+  .dash-bar-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+  .dash-body { padding: 22px 20px 24px; }
+  .dash-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .service-index {
-    font-family: var(--serif);
-    font-size: 13px;
-    color: var(--primary);
-    display: block;
-    margin-bottom: 18px;
+  .dash-row:last-of-type { border-bottom: none; }
+  .dash-row-name { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 500; }
+  .dash-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+  .dash-row-status { font-size: 13px; color: var(--success); font-weight: 500; }
+  .dash-foot {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
   }
-  .service-panel h3 { font-size: 1.35rem; margin-bottom: 12px; }
-  .service-panel > p { color: var(--ink-soft); margin: 0 0 20px; max-width: 40ch; }
-  .service-panel ul { margin: 0; padding: 0; list-style: none; }
-  .service-panel li {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-    padding: 8px 0;
+  .dash-stat-num { font-family: var(--serif); font-size: 2.1rem; color: var(--ink); line-height: 1; }
+  .dash-stat-label { font-size: 12.5px; color: var(--ink-faint); margin-top: 6px; }
+  .dash-check { font-size: 12.5px; color: var(--ink-faint); }
+
+  /* ---------- Credibility strip ---------- */
+  .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-alt); }
+  .strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 0;
+  }
+  @media (max-width: 820px) { .strip-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; } }
+  .strip-item { text-align: left; padding: 0 24px; border-left: 1px solid var(--line); }
+  .strip-item:first-child { border-left: none; }
+  @media (max-width: 820px) {
+    .strip-item:nth-child(2n+1) { border-left: none; }
+    .strip-item:nth-child(2n) { border-left: 1px solid var(--line); }
+  }
+  .strip-item h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .strip-item p { font-size: 13.5px; color: var(--ink-soft); max-width: 24ch; }
+
+  /* ---------- Services ---------- */
+  .services-head { margin-bottom: 56px; max-width: 56ch; }
+  .services-head h2 { font-size: clamp(1.7rem, 3vw, 2.25rem); margin-bottom: 16px; }
+  .services-head p { color: var(--ink-soft); font-size: 16.5px; }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    padding: 40px 0;
     border-top: 1px solid var(--line);
   }
-  .service-panel li:first-child { border-top: none; }
-
-  /* ---------- Value prop ---------- */
-  .value-section { background: var(--paper-raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .value-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+  .service-row:last-child { border-bottom: 1px solid var(--line); }
+  @media (max-width: 760px) {
+    .service-row { grid-template-columns: 1fr; gap: 18px; padding: 32px 0; }
   }
-  @media (max-width: 820px) {
-    .value-grid { grid-template-columns: 1fr; }
+  .service-mark {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: var(--paper-alt);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+    color: var(--primary);
   }
-  .value-mark {
-    width: 38px;
-    height: 38px;
-    border: 1.5px solid var(--primary);
-    border-radius: 50%;
-    margin-bottom: 22px;
+  .service-mark svg { width: 20px; height: 20px; }
+  .service-row h3 { font-size: 1.35rem; margin-bottom: 10px; }
+  .service-row > div:first-child p { color: var(--ink-soft); font-size: 15px; max-width: 30ch; }
+  .service-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 28px; }
+  @media (max-width: 560px) { .service-list { grid-template-columns: 1fr; } }
+  .service-list li {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    padding-left: 18px;
     position: relative;
   }
-  .value-mark::after {
+  .service-list li::before {
     content: "";
     position: absolute;
-    inset: 9px;
-    background: var(--amber);
+    left: 0; top: 9px;
+    width: 6px; height: 6px;
     border-radius: 50%;
+    background: var(--gold);
   }
-  .value-item h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .value-item p { color: var(--ink-soft); margin: 0; max-width: 34ch; }
+
+  /* ---------- Why ---------- */
+  .why-section { background: var(--paper-alt); }
+  .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+  @media (max-width: 820px) { .value-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .value-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
+  .value-item p { color: var(--ink-soft); font-size: 15px; max-width: 34ch; }
+  .value-rule { width: 32px; height: 2px; background: var(--gold); margin-bottom: 22px; }
 
   /* ---------- Process ---------- */
-  .process-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 56px;
-    position: relative;
-  }
-  @media (max-width: 820px) {
-    .process-list { grid-template-columns: 1fr; gap: 40px; }
-  }
-  .process-list::before {
-    content: "";
-    position: absolute;
-    top: 21px;
-    left: 6%;
-    right: 6%;
-    height: 1px;
-    background: var(--line);
-  }
-  @media (max-width: 820px) { .process-list::before { display: none; } }
-  .process-step { padding-right: 30px; position: relative; }
+  .process-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 52px; }
+  @media (max-width: 820px) { .process-list { grid-template-columns: 1fr; gap: 36px; } }
   .process-num {
     font-family: var(--serif);
     font-size: 15px;
-    width: 42px;
-    height: 42px;
+    width: 40px; height: 40px;
     border-radius: 50%;
-    background: var(--paper);
     border: 1px solid var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
   }
-  .process-step h3 { font-size: 1.2rem; margin-bottom: 10px; }
-  .process-step p { color: var(--ink-soft); margin: 0; max-width: 32ch; }
+  .process-step h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .process-step p { color: var(--ink-soft); font-size: 15px; max-width: 32ch; }
 
   /* ---------- Contact ---------- */
-  .contact-section { background: var(--ink); color: var(--paper-on-dark); }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-  @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr; }
-  }
-  .contact-section h2 {
-    font-size: clamp(1.9rem, 3.6vw, 2.6rem);
-    max-width: 14ch;
-    color: var(--paper-on-dark);
-  }
-  .contact-section p.lede { color: rgba(245,242,234,0.72); font-size: 17px; max-width: 42ch; margin: 24px 0; }
-  .contact-facts { margin-top: 36px; display: flex; flex-direction: column; gap: 14px; }
-  .contact-fact { font-size: 14.5px; color: rgba(245,242,234,0.68); display: flex; gap: 10px; align-items: baseline; }
-  .contact-fact strong { color: var(--paper-on-dark); font-weight: 600; }
+  .contact-section { background: var(--primary-deep); color: #FFFFFF; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-section h2 { font-size: clamp(1.85rem, 3.4vw, 2.5rem); max-width: 15ch; color: #FFFFFF; }
+  .contact-section .lede { color: rgba(255,255,255,0.72); font-size: 16.5px; max-width: 42ch; margin: 22px 0 32px; }
+  .contact-facts { margin-top: 32px; display: flex; flex-direction: column; gap: 13px; }
+  .contact-fact { font-size: 14.5px; color: rgba(255,255,255,0.72); display: flex; gap: 10px; align-items: baseline; }
+  .contact-fact strong { color: #FFFFFF; font-weight: 600; }
+  .contact-fact a { text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); }
+  .contact-fact a:hover { text-decoration-color: #FFFFFF; }
 
   form { display: flex; flex-direction: column; gap: 18px; }
-  .field label {
-    display: block;
-    font-size: 13.5px;
-    margin-bottom: 8px;
-    color: rgba(245,242,234,0.72);
-  }
+  .field label { display: block; font-size: 13.5px; margin-bottom: 8px; color: rgba(255,255,255,0.72); }
   .field input, .field textarea {
     width: 100%;
-    background: rgba(245,242,234,0.06);
-    border: 1px solid rgba(245,242,234,0.24);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.24);
     border-radius: var(--radius);
     padding: 13px 14px;
-    color: var(--paper-on-dark);
+    color: #FFFFFF;
     font-family: var(--sans);
     font-size: 15px;
   }
   .field textarea { min-height: 120px; resize: vertical; }
-  .field input::placeholder, .field textarea::placeholder { color: rgba(245,242,234,0.38); }
-  .field input:focus, .field textarea:focus {
-    outline: none;
-    border-color: var(--amber);
+  .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.4); }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--gold); }
+  .form-note { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+  /* ---------- Thank-you state ---------- */
+  .confirm-section { min-height: 60vh; display: flex; align-items: center; }
+  .confirm-wrap { max-width: 620px; }
+  .confirm-mark {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: var(--success);
+    color: #FFFFFF;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 30px;
   }
-  .form-note { font-size: 13px; color: rgba(245,242,234,0.55); margin-top: 4px; }
-  .form-status { font-size: 14px; margin-top: 6px; min-height: 20px; }
+  .confirm-mark svg { width: 24px; height: 24px; }
+  .confirm-section h1 { font-size: clamp(2rem, 4vw, 2.7rem); line-height: 1.14; margin-bottom: 18px; }
+  .confirm-section p.lede { font-size: 17px; color: var(--ink-soft); max-width: 48ch; margin: 0 0 34px; }
+  .confirm-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 38px; }
+  .confirm-next { border-top: 1px solid var(--line); padding-top: 26px; font-size: 14.5px; color: var(--ink-soft); }
+  .confirm-next strong { color: var(--ink); }
 
   /* ---------- Footer ---------- */
-  footer { background: var(--ink); color: rgba(245,242,234,0.75); border-top: 1px solid rgba(245,242,234,0.14); }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 40px;
-    padding: 72px 0 48px;
-  }
-  @media (max-width: 820px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 520px) {
-    .footer-grid { grid-template-columns: 1fr; }
-  }
-  .footer-brand .logo { color: var(--paper-on-dark); margin-bottom: 14px; display: block; }
-  .footer-brand p { max-width: 30ch; font-size: 14px; color: rgba(245,242,234,0.55); }
-  .footer-col h4 {
-    font-family: var(--sans);
-    font-size: 13.5px;
-    font-weight: 600;
-    color: var(--paper-on-dark);
-    margin: 0 0 18px;
-  }
+  footer { background: var(--ink); color: rgba(255,255,255,0.72); }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding: 68px 0 44px; }
+  @media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-brand .logo { color: #FFFFFF; margin-bottom: 14px; }
+  .footer-brand .logo-mark { color: var(--gold); }
+  .footer-brand .logo-sub { color: rgba(255,255,255,0.55); display: inline; }
+  .footer-brand p { max-width: 30ch; font-size: 14px; color: rgba(255,255,255,0.55); }
+  .footer-col h4 { font-family: var(--sans); font-size: 13.5px; font-weight: 600; color: #FFFFFF; margin: 0 0 18px; }
   .footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
-  .footer-col a { text-decoration: none; font-size: 14px; color: rgba(245,242,234,0.65); }
-  .footer-col a:hover { color: var(--paper-on-dark); }
+  .footer-col a { text-decoration: none; font-size: 14px; color: rgba(255,255,255,0.62); }
+  .footer-col a:hover { color: #FFFFFF; }
   .footer-bottom {
-    border-top: 1px solid rgba(245,242,234,0.14);
-    padding: 24px 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 13px;
-    color: rgba(245,242,234,0.5);
+    border-top: 1px solid rgba(255,255,255,0.14);
+    padding: 22px 0;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: rgba(255,255,255,0.48);
   }
   .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
-  .footer-legal a { text-decoration: none; color: rgba(245,242,234,0.5); }
-  .footer-legal a:hover { color: var(--paper-on-dark); }
+  .footer-legal a { text-decoration: none; color: rgba(255,255,255,0.48); }
+  .footer-legal a:hover { color: #FFFFFF; }
 
   /* ---------- WhatsApp float ---------- */
   .whatsapp-float {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #25D366;
-    color: #FFFFFF;
+    position: fixed; right: 22px; bottom: 22px; z-index: 50;
+    display: flex; align-items: center; gap: 10px;
+    background: #25D366; color: #FFFFFF;
     padding: 13px 18px 13px 14px;
     border-radius: 999px;
     text-decoration: none;
     font-family: var(--sans);
-    font-weight: 600;
-    font-size: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+    font-weight: 600; font-size: 14px;
+    box-shadow: 0 6px 20px rgba(16,24,43,0.22);
     transition: transform 0.15s ease;
   }
   .whatsapp-float:hover { transform: translateY(-2px); }
-  .whatsapp-float:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  .whatsapp-float:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   .whatsapp-float svg { width: 22px; height: 22px; flex-shrink: 0; }
-  .whatsapp-float .wa-label { white-space: nowrap; }
   @media (max-width: 560px) {
     .whatsapp-float .wa-label { display: none; }
     .whatsapp-float { padding: 13px; }
   }
-
-  /* ---------- Thank-you state ---------- */
-  .confirm-section { min-height: 62vh; display: flex; align-items: center; }
-  .confirm-wrap { max-width: 640px; }
-  .confirm-mark {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #FBFAF6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 32px;
-  }
-  .confirm-mark svg { width: 26px; height: 26px; }
-  .confirm-section h1 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    line-height: 1.12;
-    margin-bottom: 20px;
-  }
-  .confirm-section p.lede {
-    font-size: 17.5px;
-    color: var(--ink-soft);
-    max-width: 48ch;
-    margin: 0 0 36px;
-  }
-  .confirm-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-  .confirm-next {
-    border-top: 1px solid var(--line);
-    padding-top: 28px;
-    font-size: 14.5px;
-    color: var(--ink-soft);
-  }
-  .confirm-next strong { color: var(--ink); }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -527,7 +399,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="logo">Rolva<span>.</span> <span class="logo-sub">Digital Technologies</span></div>
+    <div class="logo"><span class="logo-mark">Rolva</span><span class="logo-sub">Digital Technologies</span></div>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Rolva</a></li>
@@ -561,49 +433,66 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-kicker">IT · Software · Security · AI, under one roof</div>
-      <h1>Full-spectrum digital and IT solutions, without the runaround.</h1>
-      <p class="lede">Whatever's broken, slow, outdated, or missing in your technology, Rolva has already fixed it for a business like yours. One partner, every problem solved.</p>
+      <h1>One technology partner for every system your business runs on.</h1>
+      <p class="lede">Rolva Digital Technologies manages your infrastructure, builds your software, protects your data, and modernizes your workflows — so you have one accountable partner instead of five disconnected vendors.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Request a Free Tech Audit</a>
         <a href="#services" class="btn btn-ghost">Explore Our Services</a>
       </div>
-      <div class="hero-trust">Trusted by growing businesses across industries — no in-house tech team required.</div>
+      <div class="hero-trust">Built for small and mid-sized businesses that need enterprise-grade technology without an in-house IT department.</div>
     </div>
-    <div class="diagram-wrap">
-      <svg class="diagram" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of Rolva connecting cloud infrastructure, software, security, and AI systems around a central hub">
-        <defs>
-          <style>
-            .node-label { font-family: 'Inter', sans-serif; font-size: 11.5px; fill: var(--ink-soft); }
-            .node-ring { fill: var(--paper); stroke: var(--ink); stroke-width: 1; }
-            .edge { stroke: var(--line); stroke-width: 1; }
-            .edge-live { stroke: var(--primary); stroke-width: 1.4; }
-          </style>
-        </defs>
-        <line x1="230" y1="190" x2="90" y2="80" class="edge"/>
-        <line x1="230" y1="190" x2="370" y2="80" class="edge-live"/>
-        <line x1="230" y1="190" x2="90" y2="300" class="edge-live"/>
-        <line x1="230" y1="190" x2="370" y2="300" class="edge"/>
-        <line x1="230" y1="190" x2="230" y2="40" class="edge"/>
 
-        <circle cx="230" cy="190" r="34" fill="var(--primary)"/>
-        <text x="230" y="194" text-anchor="middle" font-family="Fraunces" font-size="12.5" fill="#FBFAF6">ROLVA</text>
+    <div class="dash">
+      <div class="dash-bar">
+        <span class="dash-bar-title">Rolva system overview</span>
+        <span class="dash-bar-dots"><span></span><span></span><span></span></span>
+      </div>
+      <div class="dash-body">
+        <div class="dash-row">
+          <span class="dash-row-name"><span class="dash-dot"></span>Cloud &amp; IT infrastructure</span>
+          <span class="dash-row-status">Active</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-row-name"><span class="dash-dot"></span>Software &amp; web platforms</span>
+          <span class="dash-row-status">Active</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-row-name"><span class="dash-dot"></span>Security &amp; backups</span>
+          <span class="dash-row-status">Protected</span>
+        </div>
+        <div class="dash-row">
+          <span class="dash-row-name"><span class="dash-dot"></span>AI &amp; automation workflows</span>
+          <span class="dash-row-status">Running</span>
+        </div>
+        <div class="dash-foot">
+          <div>
+            <div class="dash-stat-num">4</div>
+            <div class="dash-stat-label">disciplines, one partner</div>
+          </div>
+          <div class="dash-check">Monitored around the clock</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <circle cx="90" cy="80" r="22" class="node-ring"/>
-        <text x="90" y="46" text-anchor="middle" class="node-label">Cloud &amp; IT</text>
-
-        <circle cx="370" cy="80" r="22" class="node-ring"/>
-        <text x="370" y="46" text-anchor="middle" class="node-label">Software &amp; Web</text>
-
-        <circle cx="90" cy="300" r="22" class="node-ring"/>
-        <text x="90" y="338" text-anchor="middle" class="node-label">Security &amp; Backups</text>
-
-        <circle cx="370" cy="300" r="22" class="node-ring"/>
-        <text x="370" y="338" text-anchor="middle" class="node-label">AI &amp; Automation</text>
-
-        <circle cx="230" cy="40" r="14" fill="var(--amber)"/>
-        <text x="230" y="20" text-anchor="middle" class="node-label">Your business</text>
-      </svg>
+<section class="strip">
+  <div class="wrap strip-grid">
+    <div class="strip-item">
+      <h3>24/7 monitoring</h3>
+      <p>Your systems are watched around the clock, not just during business hours.</p>
+    </div>
+    <div class="strip-item">
+      <h3>1 business day response</h3>
+      <p>Every audit request and support ticket gets a real reply, fast.</p>
+    </div>
+    <div class="strip-item">
+      <h3>4 disciplines, 1 partner</h3>
+      <p>IT, software, security, and AI, coordinated instead of scattered.</p>
+    </div>
+    <div class="strip-item">
+      <h3>Built for growth</h3>
+      <p>Solutions sized for where you are now, and where you're headed.</p>
     </div>
   </div>
 </section>
@@ -611,80 +500,97 @@
 <section class="section-pad" id="services">
   <div class="wrap">
     <div class="services-head">
-      <h2>Anything digital. Genuinely anything.</h2>
-      <p>Four pillars, one accountable partner. No vendor-hopping, no dropped context between teams.</p>
+      <h2>Everything digital, handled by one team</h2>
+      <p>Four core disciplines cover the full lifecycle of your technology, from the servers you rely on to the software your customers use.</p>
     </div>
 
-    <div class="service-map">
-      <div class="service-panel">
-        <span class="service-index">Infrastructure</span>
+    <div class="service-row">
+      <div>
+        <div class="service-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 15a4 4 0 0 1 0-8 5 5 0 0 1 9.8-1.2A4.5 4.5 0 0 1 18 15H6Z"/></svg>
+        </div>
         <h3>Managed IT &amp; Cloud Infrastructure</h3>
-        <p>Reliable, always-on systems that keep your business running, without the in-house IT headcount.</p>
-        <ul>
-          <li>24/7 network monitoring &amp; support</li>
-          <li>Cloud migration &amp; management (AWS, Azure, GCP)</li>
-          <li>Hardware procurement &amp; device management</li>
-          <li>IT helpdesk for your whole team</li>
-        </ul>
+        <p>Reliable, always-on systems that keep your business running without an in-house IT team.</p>
       </div>
-      <div class="service-panel">
-        <span class="service-index">Build</span>
+      <ul class="service-list">
+        <li>24/7 network monitoring &amp; support</li>
+        <li>Cloud migration &amp; management (AWS, Azure, GCP)</li>
+        <li>Hardware procurement &amp; device management</li>
+        <li>IT helpdesk for your whole team</li>
+      </ul>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"/></svg>
+        </div>
         <h3>Custom Software, Web &amp; API Development</h3>
-        <p>From your first landing page to enterprise-grade platforms, built to scale with you.</p>
-        <ul>
-          <li>Website &amp; e-commerce development</li>
-          <li>Custom software &amp; internal tools</li>
-          <li>API design, integration &amp; automation</li>
-          <li>Mobile app development</li>
-        </ul>
+        <p>From your first landing page to enterprise-grade platforms, built to scale with your business.</p>
       </div>
-      <div class="service-panel">
-        <span class="service-index">Protection</span>
+      <ul class="service-list">
+        <li>Website &amp; e-commerce development</li>
+        <li>Custom software &amp; internal tools</li>
+        <li>API design, integration &amp; automation</li>
+        <li>Mobile app development</li>
+      </ul>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z"/></svg>
+        </div>
         <h3>Cybersecurity, Backups &amp; Data Protection</h3>
-        <p>Sleep easy knowing your business, your data, and your customers are protected.</p>
-        <ul>
-          <li>Security audits &amp; vulnerability testing</li>
-          <li>Automated backups &amp; disaster recovery</li>
-          <li>Compliance support (GDPR, HIPAA, and more)</li>
-          <li>Employee security training</li>
-        </ul>
+        <p>Confidence that your business, your data, and your customers are protected around the clock.</p>
       </div>
-      <div class="service-panel">
-        <span class="service-index">Evolve</span>
+      <ul class="service-list">
+        <li>Security audits &amp; vulnerability testing</li>
+        <li>Automated backups &amp; disaster recovery</li>
+        <li>Compliance support (GDPR, HIPAA, and more)</li>
+        <li>Employee security training</li>
+      </ul>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M17.7 6.3l-2 2M8.3 15.7l-2 2"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
         <h3>Digital Transformation &amp; AI Workflows</h3>
-        <p>Modernize how you work with smart automation and AI tools built for real business results.</p>
-        <ul>
-          <li>AI-powered workflow automation</li>
-          <li>Legacy system modernization</li>
-          <li>Data analytics &amp; reporting dashboards</li>
-          <li>Custom AI integrations, from chatbots to copilots</li>
-        </ul>
+        <p>Modernize how you work with smart automation and AI tools built for measurable results.</p>
       </div>
+      <ul class="service-list">
+        <li>AI-powered workflow automation</li>
+        <li>Legacy system modernization</li>
+        <li>Data analytics &amp; reporting dashboards</li>
+        <li>Custom AI integrations, from chatbots to copilots</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="value-section section-pad" id="why">
+<section class="why-section section-pad" id="why">
   <div class="wrap">
-    <div class="services-head" style="border-bottom: none; padding-bottom: 0; margin-bottom: 48px;">
+    <div class="services-head">
       <h2>Why businesses choose Rolva</h2>
       <p>Technology shouldn't be complicated, and neither should choosing who manages it.</p>
     </div>
     <div class="value-grid">
       <div class="value-item">
-        <div class="value-mark"></div>
+        <div class="value-rule"></div>
         <h3>One partner, every solution</h3>
         <p>No more stitching together five vendors. Rolva is your single point of contact for everything digital, from IT to software to security.</p>
       </div>
       <div class="value-item">
-        <div class="value-mark"></div>
+        <div class="value-rule"></div>
         <h3>Fast response, real support</h3>
-        <p>Tech problems don't wait for business hours, and neither do we. Rapid turnaround and responsive support are built into everything we do.</p>
+        <p>Tech problems don't wait for business hours, and neither do we. Rapid turnaround is built into how we work.</p>
       </div>
       <div class="value-item">
-        <div class="value-mark"></div>
+        <div class="value-rule"></div>
         <h3>Built to scale with you</h3>
-        <p>Whether you're five people or five hundred, our solutions grow with your business, enterprise-grade infrastructure without enterprise-level complexity.</p>
+        <p>Whether you're five people or five hundred, our solutions grow with your business — enterprise-grade infrastructure without enterprise-level complexity.</p>
       </div>
     </div>
   </div>
@@ -692,7 +598,7 @@
 
 <section class="section-pad" id="process">
   <div class="wrap">
-    <div class="services-head" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+    <div class="services-head" style="margin-bottom: 0;">
       <h2>How it works</h2>
       <p>Getting expert tech support shouldn't feel like a project in itself.</p>
     </div>
@@ -719,17 +625,17 @@
 <section class="contact-section section-pad" id="contact">
   <div class="wrap contact-grid">
     <div>
-      <h2>Send us your toughest tech problem.</h2>
+      <h2>Send us your toughest tech problem</h2>
       <p class="lede">No jargon, no sales pressure — just a straightforward conversation about what isn't working and how we'll fix it. A specialist follows up within one business day.</p>
       <div class="contact-facts">
-        <div class="contact-fact"><strong>Email</strong> rolvadigitaltechnologies@gmail.com</div>
-        <div class="contact-fact"><strong>Phone</strong> +27 78 679 9418</div>
+        <div class="contact-fact"><strong>Email</strong> <a href="mailto:rolvadigitaltechnologies@gmail.com">rolvadigitaltechnologies@gmail.com</a></div>
+        <div class="contact-fact"><strong>Phone</strong> <a href="tel:+27786799418">+27 78 679 9418</a></div>
         <div class="contact-fact"><strong>WhatsApp</strong> <a href="https://wa.me/27786799418" target="_blank" rel="noopener">Chat with support</a></div>
         <div class="contact-fact"><strong>Response time</strong> within 1 business day</div>
       </div>
     </div>
 
-    <form class="contact-form" id="lead-form" action="https://formspree.io/f/myeyjjql" method="POST" enctype="multipart/form-data">
+    <form class="contact-form" action="https://formspree.io/f/myeyjjql" method="POST" enctype="multipart/form-data">
       <div class="field">
         <label for="name">Full name</label>
         <input type="text" id="name" name="name" placeholder="Jordan Lee" required>
@@ -748,7 +654,7 @@
       </div>
       <input type="hidden" name="_subject" value="New lead from Rolva website">
       <input type="hidden" name="_next" value="index.html#thank-you">
-      <button type="submit" class="btn btn-dark" style="width:100%; justify-content:center;">Send My Tech Challenge</button>
+      <button type="submit" class="btn btn-on-dark" style="width:100%; justify-content:center;">Send My Tech Challenge</button>
       <p class="form-note">Your information is confidential and never shared. No spam, ever.</p>
     </form>
   </div>
@@ -764,7 +670,7 @@
           <path d="M4 12.6L9.2 18 20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <div class="hero-kicker">Message received</div>
+      <div class="eyebrow-label">Message received</div>
       <h1>Thanks — we've got your tech challenge.</h1>
       <p class="lede">A Rolva specialist will review what you sent and follow up within one business day. In the meantime, feel free to reach out directly if it's urgent.</p>
       <div class="confirm-actions">
@@ -781,7 +687,7 @@
 <footer>
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <span class="logo">Rolva<span style="color: var(--primary);">.</span> <span class="logo-sub">Digital Technologies</span></span>
+      <div class="logo"><span class="logo-mark">Rolva</span> <span class="logo-sub">Digital Technologies</span></div>
       <p>Rolva Digital Technologies is your complete digital &amp; IT solutions partner, for businesses that would rather build than troubleshoot.</p>
     </div>
     <div class="footer-col">
