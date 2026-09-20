@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F5F1E8;
-    --paper-raised: #ECE4D2;
-    --ink: #211D16;
-    --ink-soft: #5C5648;
-    --line: rgba(33, 29, 22, 0.14);
-    --primary: #2F6B4F;
-    --primary-deep: #234F3A;
-    --amber: #B8863B;
+    --paper: #FAF9F6;
+    --paper-raised: #F0EEE9;
+    --ink: #1C2333;
+    --ink-soft: #5B6172;
+    --line: rgba(28, 35, 51, 0.12);
+    --primary: #3355D6;
+    --primary-deep: #263FA6;
+    --amber: #F2703C;
     --paper-on-dark: #F5F2EA;
     --radius: 3px;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -25,25 +25,25 @@
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #171A15;
-      --paper-raised: #1B2823;
-      --ink: #F1EEE2;
-      --ink-soft: #B7B29F;
-      --line: rgba(241, 238, 226, 0.16);
-      --primary: #5FA98A;
-      --primary-deep: #4A8A70;
-      --amber: #D6A85A;
+      --paper: #161A2B;
+      --paper-raised: #1E2338;
+      --ink: #F1F1F6;
+      --ink-soft: #A9AEC2;
+      --line: rgba(241, 241, 246, 0.14);
+      --primary: #7B93F0;
+      --primary-deep: #93A7F5;
+      --amber: #F58A5C;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #171A15;
-    --paper-raised: #1B2823;
-    --ink: #F1EEE2;
-    --ink-soft: #B7B29F;
-    --line: rgba(241, 238, 226, 0.16);
-    --primary: #5FA98A;
-    --primary-deep: #4A8A70;
-    --amber: #D6A85A;
+    --paper: #161A2B;
+    --paper-raised: #1E2338;
+    --ink: #F1F1F6;
+    --ink-soft: #A9AEC2;
+    --line: rgba(241, 241, 246, 0.14);
+    --primary: #7B93F0;
+    --primary-deep: #93A7F5;
+    --amber: #F58A5C;
   }
 
   * { box-sizing: border-box; }
@@ -72,8 +72,11 @@
   }
   .section-pad { padding: 108px 0; }
   @media (max-width: 720px) {
-    .section-pad { padding: 72px 0; }
+    .section-pad { padding: 60px 0; }
     .wrap { padding: 0 20px; }
+  }
+  @media (max-width: 420px) {
+    .wrap { padding: 0 16px; }
   }
 
   /* ---------- Buttons ---------- */
@@ -121,6 +124,18 @@
     letter-spacing: -0.01em;
   }
   .logo span { color: var(--primary); }
+  .logo-sub {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+    margin-left: 2px;
+  }
+  .footer-brand .logo-sub { color: rgba(245,242,234,0.55); }
+  @media (max-width: 560px) {
+    .logo-sub { display: none; }
+  }
   .nav-links {
     display: flex;
     gap: 34px;
@@ -132,9 +147,47 @@
   .nav-links a { text-decoration: none; color: var(--ink-soft); }
   .nav-links a:hover { color: var(--ink); }
   .nav-cta { display: flex; align-items: center; gap: 18px; }
-  .nav-toggle { display: none; }
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 0;
+  }
+  .nav-toggle:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 22px;
+    padding: 24px 20px 28px;
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .mobile-menu ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 16.5px;
+    font-weight: 500;
+    padding: 10px 4px;
+    display: block;
+  }
+  header.menu-open .mobile-menu { display: flex; }
+  header.menu-open .nt-top { transform: translateY(6px) rotate(45deg); transform-origin: center; }
+  header.menu-open .nt-bot { transform: translateY(-6px) rotate(-45deg); transform-origin: center; }
+  header.menu-open .nt-mid { opacity: 0; }
+  .nt-line { transition: transform 0.18s ease, opacity 0.18s ease; }
+
   @media (max-width: 860px) {
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
   }
 
   /* ---------- Hero ---------- */
@@ -149,7 +202,12 @@
     align-items: center;
   }
   @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; }
+    .hero { padding: 56px 0 64px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 480px) {
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .hero-ctas .btn { justify-content: center; }
   }
   .hero-kicker {
     font-size: 14.5px;
@@ -219,7 +277,7 @@
   .service-panel:nth-child(2n) { border-right: none; }
   .service-panel:nth-child(3), .service-panel:nth-child(4) { border-bottom: none; }
   @media (max-width: 720px) {
-    .service-panel { border-right: none !important; }
+    .service-panel { border-right: none !important; padding: 30px 24px; }
     .service-panel:nth-child(4) { border-bottom: none; }
   }
   .service-index {
@@ -424,6 +482,41 @@
     .whatsapp-float { padding: 13px; }
   }
 
+  /* ---------- Thank-you state ---------- */
+  .confirm-section { min-height: 62vh; display: flex; align-items: center; }
+  .confirm-wrap { max-width: 640px; }
+  .confirm-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #FBFAF6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  .confirm-mark svg { width: 26px; height: 26px; }
+  .confirm-section h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.12;
+    margin-bottom: 20px;
+  }
+  .confirm-section p.lede {
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    max-width: 48ch;
+    margin: 0 0 36px;
+  }
+  .confirm-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+  .confirm-next {
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .confirm-next strong { color: var(--ink); }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     * { transition: none !important; }
@@ -434,7 +527,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="logo">Rolva<span>.</span></div>
+    <div class="logo">Rolva<span>.</span> <span class="logo-sub">Digital Technologies</span></div>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#why">Why Rolva</a></li>
@@ -444,8 +537,26 @@
     <div class="nav-cta">
       <a class="btn btn-primary" href="#contact" style="padding:10px 20px; font-size:14px;">Free Tech Audit</a>
     </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path class="nt-line nt-top" d="M4 6H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="nt-line nt-mid" d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path class="nt-line nt-bot" d="M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
+  <nav id="mobile-menu" class="mobile-menu">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Rolva</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#contact" style="width:100%; justify-content:center;">Request a Free Tech Audit</a>
+  </nav>
 </header>
+
+<div id="main-content">
 
 <section class="hero">
   <div class="wrap hero-grid">
@@ -636,18 +747,42 @@
         <textarea id="challenge" name="message" placeholder="What's slow, broken, outdated, or missing?" required></textarea>
       </div>
       <input type="hidden" name="_subject" value="New lead from Rolva website">
-      <input type="hidden" name="_next" value="thank-you.html">
+      <input type="hidden" name="_next" value="index.html#thank-you">
       <button type="submit" class="btn btn-dark" style="width:100%; justify-content:center;">Send My Tech Challenge</button>
       <p class="form-note">Your information is confidential and never shared. No spam, ever.</p>
     </form>
   </div>
 </section>
 
+</div>
+
+<section class="section-pad confirm-section" id="thank-you" style="display:none;">
+  <div class="wrap">
+    <div class="confirm-wrap">
+      <div class="confirm-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 12.6L9.2 18 20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="hero-kicker">Message received</div>
+      <h1>Thanks — we've got your tech challenge.</h1>
+      <p class="lede">A Rolva specialist will review what you sent and follow up within one business day. In the meantime, feel free to reach out directly if it's urgent.</p>
+      <div class="confirm-actions">
+        <a href="#" id="back-home-link" class="btn btn-primary">Back to Homepage</a>
+        <a href="https://wa.me/27786799418" target="_blank" rel="noopener" class="btn btn-ghost">Message Us on WhatsApp</a>
+      </div>
+      <div class="confirm-next">
+        <strong>What happens next:</strong> we'll review your challenge, and a specialist will reply from rolvadigitaltechnologies@gmail.com with next steps or a few clarifying questions.
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <span class="logo">Rolva<span style="color: var(--primary);">.</span></span>
-      <p>Your complete digital &amp; IT solutions partner, for businesses that would rather build than troubleshoot.</p>
+      <span class="logo">Rolva<span style="color: var(--primary);">.</span> <span class="logo-sub">Digital Technologies</span></span>
+      <p>Rolva Digital Technologies is your complete digital &amp; IT solutions partner, for businesses that would rather build than troubleshoot.</p>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
@@ -693,6 +828,73 @@
   </svg>
   <span class="wa-label">WhatsApp Support</span>
 </a>
+
+<script>
+  (function () {
+    var header = document.querySelector('header');
+    var navToggle = document.getElementById('nav-toggle');
+    var mobileMenu = document.getElementById('mobile-menu');
+
+    if (navToggle && header && mobileMenu) {
+      navToggle.addEventListener('click', function () {
+        var isOpen = header.classList.toggle('menu-open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          header.classList.remove('menu-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Open menu');
+        });
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 860 && header.classList.contains('menu-open')) {
+          header.classList.remove('menu-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.setAttribute('aria-label', 'Open menu');
+        }
+      });
+    }
+  })();
+
+  (function () {
+    var mainContent = document.getElementById('main-content');
+    var thankYou = document.getElementById('thank-you');
+    var backLink = document.getElementById('back-home-link');
+
+    function showThankYou() {
+      mainContent.style.display = 'none';
+      thankYou.style.display = 'flex';
+      window.scrollTo(0, 0);
+    }
+    function showMain() {
+      mainContent.style.display = '';
+      thankYou.style.display = 'none';
+      window.scrollTo(0, 0);
+    }
+
+    if (window.location.hash === '#thank-you') {
+      showThankYou();
+    }
+
+    window.addEventListener('hashchange', function () {
+      if (window.location.hash === '#thank-you') {
+        showThankYou();
+      } else {
+        showMain();
+      }
+    });
+
+    if (backLink) {
+      backLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+        showMain();
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
