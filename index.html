@@ -417,6 +417,67 @@
   .confirm-next { border-top: 1px solid var(--line); padding-top: 26px; font-size: 14.5px; color: var(--ink-soft); }
   .confirm-next strong { color: var(--ink); }
 
+  /* ---------- Partner details ---------- */
+  .detail-block {
+    background: var(--paper-alt);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px 26px;
+  }
+  .detail-block h3 { font-size: 1.05rem; margin-bottom: 18px; }
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+  .detail-row:last-of-type { border-bottom: none; }
+  .detail-row span:first-child { color: var(--ink-soft); flex-shrink: 0; }
+  .detail-row span:last-child { font-weight: 600; text-align: right; }
+  @media (max-width: 640px) {
+    .detail-row { flex-direction: column; gap: 4px; }
+    .detail-row span:last-child { text-align: left; }
+  }
+
+  /* ---------- Banking details modal ---------- */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(16, 24, 43, 0.55);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 32px 30px 30px;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(16, 24, 43, 0.3);
+  }
+  .modal-box h3 { font-size: 1.3rem; margin-bottom: 8px; padding-right: 24px; }
+  .modal-sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 22px; }
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--ink-soft);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+  }
+  .modal-close:hover { color: var(--ink); }
+  .modal-close:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .modal-box .detail-row { font-size: 14.5px; }
+
   /* ---------- Footer ---------- */
   footer { background: var(--ink); color: rgba(255,255,255,0.72); }
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding: 68px 0 44px; }
@@ -702,6 +763,48 @@
   </div>
 </section>
 
+<section class="section-pad" id="partner">
+  <div class="wrap">
+    <div class="services-head">
+      <h2>Partner with Rolva Digital Technologies</h2>
+      <p>We work alongside referral partners, resellers, software vendors, and fellow consultancies who want to bring reliable IT and digital services to their clients.</p>
+    </div>
+
+    <div class="value-grid" style="margin-bottom: 64px;">
+      <div class="value-item">
+        <div class="value-rule"></div>
+        <h3>Referral partners</h3>
+        <p>Point a client our way when they need IT, software, or security help outside your own scope, and we'll keep you in the loop the whole way through.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-rule"></div>
+        <h3>Reseller &amp; technology partners</h3>
+        <p>Bundle Rolva's managed IT, security, or development services alongside your own product or platform.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-rule"></div>
+        <h3>Consulting &amp; agency partners</h3>
+        <p>Bring us in as the technical delivery team behind your strategy, design, or marketing engagements.</p>
+      </div>
+    </div>
+
+    <div style="max-width: 420px;">
+      <div class="detail-block" style="display:flex; flex-direction:column; justify-content:center; text-align:left;">
+        <h3>Sending a payment?</h3>
+        <p style="color: var(--ink-soft); font-size: 14.5px; margin-bottom: 22px;">If you're an existing partner or client settling an invoice, get our banking details here.</p>
+        <button type="button" id="open-bank-modal" class="btn btn-primary" style="align-self:flex-start;">View Banking Details</button>
+      </div>
+    </div>
+
+    <div style="margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line);">
+      <h3 style="font-size: 1.2rem; margin-bottom: 14px;">Ready to talk partnership?</h3>
+      <p style="color: var(--ink-soft); max-width: 50ch; margin-bottom: 24px;">Tell us about your business and how you'd like to work together, and we'll follow up within one business day.</p>
+      <a href="mailto:rolvadigitaltechnologies@gmail.com?subject=Partnership%20Inquiry" class="btn btn-primary">Email Us About Partnering</a>
+      <p style="margin-top: 14px; font-size: 13.5px; color: var(--ink-faint);">If that doesn't open your email app, just write to us directly at <strong style="color: var(--ink-soft); font-weight: 600;">rolvadigitaltechnologies@gmail.com</strong>.</p>
+    </div>
+  </div>
+</section>
+
 <section class="contact-section section-pad" id="contact">
   <div class="wrap contact-grid">
     <div>
@@ -738,7 +841,6 @@
         <p class="form-note" style="margin-top:8px;">Screenshots, documents, or photos help us understand the problem faster — PDF, Word, or image files, a few at a time.</p>
       </div>
       <input type="hidden" name="_subject" value="New lead from Rolva website">
-      <input type="hidden" name="_next" value="index.html#thank-you">
       <button type="submit" class="btn btn-on-dark" style="width:100%; justify-content:center;">Send My Tech Challenge</button>
       <p class="form-note">Your information is confidential and never shared. No spam, ever.</p>
     </form>
@@ -746,28 +848,6 @@
 </section>
 
 </div>
-
-<section class="section-pad confirm-section" id="thank-you" style="display:none;">
-  <div class="wrap">
-    <div class="confirm-wrap">
-      <div class="confirm-mark">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M4 12.6L9.2 18 20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="eyebrow-label">Message received</div>
-      <h1>Thanks — we've got your tech challenge.</h1>
-      <p class="lede">A Rolva specialist will review what you sent and follow up within one business day. In the meantime, feel free to reach out directly if it's urgent.</p>
-      <div class="confirm-actions">
-        <a href="#" id="back-home-link" class="btn btn-primary">Back to Homepage</a>
-        <a href="https://wa.me/27786799418" target="_blank" rel="noopener" class="btn btn-ghost">Message Us on WhatsApp</a>
-      </div>
-      <div class="confirm-next">
-        <strong>What happens next:</strong> we'll review your challenge, and a specialist will reply from rolvadigitaltechnologies@gmail.com with next steps or a few clarifying questions.
-      </div>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap footer-grid">
@@ -806,7 +886,7 @@
         <li><a href="#">FAQs</a></li>
         <li><a href="#contact">Free tech audit</a></li>
         <li><a href="#">Support center</a></li>
-        <li><a href="#">Partner with us</a></li>
+        <li><a href="#partner">Partner with us</a></li>
       </ul>
     </div>
   </div>
@@ -826,6 +906,23 @@
   </svg>
   <span class="wa-label">WhatsApp Support</span>
 </a>
+
+<div class="modal-overlay" id="bank-modal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="bank-modal-title">
+    <button type="button" class="modal-close" id="close-bank-modal" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <h3 id="bank-modal-title">Banking Details</h3>
+    <p class="modal-sub">Use these details to send a payment to Rolva Digital Technologies.</p>
+    <div class="detail-row"><span>Bank</span><span>Nedbank</span></div>
+    <div class="detail-row"><span>Account holder</span><span>Rolva Digital Technologies (Pty) Ltd</span></div>
+    <div class="detail-row"><span>Account number</span><span>1347861742</span></div>
+    <div class="detail-row"><span>Branch code</span><span>198765</span></div>
+    <div class="detail-row"><span>SWIFT code</span><span>NEDSZAJJ</span></div>
+    <p class="form-note" style="margin-top:16px; color: var(--ink-faint);">Not VAT registered — no VAT is charged. Please use your invoice or agreement number as the payment reference.</p>
+    <button type="button" class="btn btn-ghost" id="copy-bank-details" style="width:100%; justify-content:center; margin-top:20px;">Copy Details</button>
+  </div>
+</div>
 
 <script>
   (function () {
@@ -857,38 +954,70 @@
   })();
 
   (function () {
-    var mainContent = document.getElementById('main-content');
-    var thankYou = document.getElementById('thank-you');
-    var backLink = document.getElementById('back-home-link');
+    var modal = document.getElementById('bank-modal');
+    var openBtn = document.getElementById('open-bank-modal');
+    var closeBtn = document.getElementById('close-bank-modal');
+    var copyBtn = document.getElementById('copy-bank-details');
 
-    function showThankYou() {
-      mainContent.style.display = 'none';
-      thankYou.style.display = 'flex';
-      window.scrollTo(0, 0);
+    if (!modal || !openBtn || !closeBtn) return;
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      closeBtn.focus();
     }
-    function showMain() {
-      mainContent.style.display = '';
-      thankYou.style.display = 'none';
-      window.scrollTo(0, 0);
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      openBtn.focus();
     }
 
-    if (window.location.hash === '#thank-you') {
-      showThankYou();
-    }
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
 
-    window.addEventListener('hashchange', function () {
-      if (window.location.hash === '#thank-you') {
-        showThankYou();
-      } else {
-        showMain();
-      }
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
     });
 
-    if (backLink) {
-      backLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        history.pushState('', document.title, window.location.pathname + window.location.search);
-        showMain();
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        var text = 'Bank: Nedbank\nAccount Holder: Rolva Digital Technologies (Pty) Ltd\nAccount Number: 1347861742\nBranch Code: 198765\nSWIFT Code: NEDSZAJJ';
+        var original = copyBtn.textContent;
+
+        function showResult(success) {
+          copyBtn.textContent = success ? 'Copied' : 'Copy failed — select manually';
+          setTimeout(function () { copyBtn.textContent = original; }, success ? 1800 : 2600);
+        }
+
+        function legacyCopy() {
+          var temp = document.createElement('textarea');
+          temp.value = text;
+          temp.style.position = 'fixed';
+          temp.style.left = '-9999px';
+          document.body.appendChild(temp);
+          temp.focus();
+          temp.select();
+          var success = false;
+          try { success = document.execCommand('copy'); } catch (err) { success = false; }
+          document.body.removeChild(temp);
+          return success;
+        }
+
+        var canUseModernClipboard = navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext;
+
+        if (canUseModernClipboard) {
+          navigator.clipboard.writeText(text).then(function () {
+            showResult(true);
+          }).catch(function () {
+            showResult(legacyCopy());
+          });
+        } else {
+          showResult(legacyCopy());
+        }
       });
     }
   })();
